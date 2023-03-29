@@ -1,0 +1,160 @@
+.info{
+    width: 90px;
+    height: 36px;
+    background: #D9D9D9;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    margin:0 4px;
+}
+.image{
+    width: 36px;
+    height: 36px;
+    background: #D9D9D9;
+    border-radius: 15px;
+    margin: 0 4px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.myAvatar{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+
+
+.image_info{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width:80%;
+    height:40px;
+    top:0;
+    left:0;
+    position: absolute;
+}
+.icon{
+    position:absolute;
+    width:25px;
+    height:25px;
+    right:10px;
+    top: 14px;
+    color: #af9e9e;
+}
+
+.edit-item{
+    width:90%;
+    background: #EDE9FE;
+    height:40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin:0  auto;
+    margin-bottom: 5px;
+    position: relative;
+    padding:5px;
+}
+
+.manage-user{
+    background: #9CA3AF !important;
+}
+.icon-1{
+    width:20px;
+    height:20px;
+}
+
+.icon-2{
+    color:black;
+
+}
+.manage_search{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    height: 50px;
+    margin-bottom: 30px;
+    margin-top:10px;
+}
+.employee_list{
+    color: rgba(0, 0, 0, 0.7);
+    background-color: #D9D9D9;
+    width:16%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:10px;
+    min-width: 100px;
+}
+.search{
+    height:100%;
+    width:50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fill_telephone{
+    width:32%;
+    min-width: 100px;
+    height:100%;
+    border: solid 1px #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+}
+.notify{
+    width:30px;
+    height:30px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    padding:2px;
+}
+.setting{
+    width:30px;
+    height:30px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    padding:2px;
+}
+
+.image_notify{
+    display:flex;
+    justify-content: space-between;
+    width:5%;
+    margin-right: 20px;
+}
+
+
+
+.dieu_chinh{
+    padding:5px 10px;
+    margin:0 15px;
+    display: inline-block !important;
+}
+.btn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.image_info_arrow{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width:100%;
+    height:150px;
+}
