@@ -8,7 +8,7 @@ function AddItemToCart() {
         <React.Fragment>
             <Header/>
 
-            <div class="AddItemToCart">
+            <div class="AddItemToCart ">
               <div class="container">
                   <div class="row fs-3 pt-3">Điện thoại Samsung Galaxy S21 FE 5G (6GB/128GB)</div>
                   <div class="row ">

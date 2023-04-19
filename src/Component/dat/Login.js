@@ -1,34 +1,44 @@
-import '../../css/Login.css';
 import { useState } from 'react';
+import {useNavigate,Link} from 'react-router-dom'
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
-
-
-
-
-
+import '../../css/Login.css';
+import {signIn} from '../../api/userApi'
 
 function Login() {
 
+  let navigate=useNavigate()
   const [Value,setValue]=useState('email')
+  const [data,setData]=useState({
+    phone    : "",
+    email    : "",
+    password : "",
+  })
 
-  function Input(){
-    if(Value==='email')
-    return (
-      <input type="text" className="form-control mb-4 rounded-pill" placeholder="Nhập Email" />
-    )
-    return (
-      <input type="text" className="form-control mb-4 rounded-pill" placeholder="Nhập Số điện thoại" />
-    )
+
+  const handle=(e)=>{
+    const newData={...data}
+    newData[e.target.id]=e.target.value
+    setData(newData)
   }
 
-  const handle1=(e)=>{
-    console.log(e.target.innerHTML)
-    setValue('Phone')
+  function handleSubmit(e){
+    e.preventDefault()
+    const FormData={...data}
+    if (Value==='email')  delete FormData.phone
+    else                  delete FormData.email
+    signIn(FormData).then((res)=>{
+      NotificationManager.success('Đăng nhập thành công')
+      localStorage.setItem("name",res.user.name);
+      localStorage.setItem("token",res.token);
+      navigate('/')
+      
+    }).catch((error)=>{
+      console.log(error)
+  })
   }
 
-  const handle2=()=>{
-    setValue('email')
-  }
+  
 
   return (
     <div className="Login  d-flex align-items-center">
@@ -37,14 +47,15 @@ function Login() {
                 <h1  className="text-center mb-5">Đăng nhập</h1>
                 <div className="mb-3 border-bottom border-secondary border-2">
                     <h4 
-                      onClick={handle1} 
+                      onClick={()=>setValue('Phone')} 
                       className="d-inline-block me-5 ms-1"
                       style={Value==='Phone'?{
                         color:'#fff',
-                      }:{}}>
+                        }:{}}>
                       Số điện thoại</h4>
+
                     <h4 
-                    onClick={handle2} 
+                    onClick={()=>setValue('email')} 
                     className="d-inline-block"
                     style={Value==='email'?{
                       color:'#fff',
@@ -52,14 +63,22 @@ function Login() {
                     }:{}}
                     >Email</h4>
                 </div>  
-                <Input></Input>
-                <input type="text" className="form-control mb-4 rounded-pill" placeholder="Nhập mât khẩu" />
-                <button type="button" className="btn btn-primary rounded-pill w-100 my-4">Đăng nhập</button>
-                <div className="text-end mb-2"><a  href="https://www.facebook.com/">Quên mật khẩu</a></div>                
-                <div className="text-center">Bạn đã có tài khoản?<a href="https://www.facebook.com/">Đăng nhập</a></div>
+                <form onSubmit={(e)=>handleSubmit(e)} >
+                  {Value==='email'?
+                   <input type="text" onChange={(e)=>handle(e)} value={data.email} id='email' className="form-control mb-4 rounded-pill" placeholder="Nhập Email" />:
+                   <input type="text" onChange={(e)=>handle(e)} value={data.phone} id='phone' className="form-control mb-4 rounded-pill" placeholder="Nhập Số điện thoại" />
+                  }
 
+                  <input type="text" onChange={(e)=>handle(e)}  value={data.password} id='password' className="form-control mb-4 rounded-pill" placeholder="Nhập mât khẩu" />
+                  <button  className="btn btn-primary rounded-pill w-100 my-4">Đăng nhập</button>
+                </form>
+                <div className="text-end mb-2"><Link to="/forgotpass"> Quên mật khẩu</Link></div>                
+                <div className="text-center">Bạn đã có tài khoản?<Link to="/signup"> Đăng ký</Link></div>
+                
+                
             </div>
         </div>
+        <NotificationContainer/>
     </div>  
   );
 }
