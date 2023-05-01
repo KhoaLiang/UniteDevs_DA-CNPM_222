@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {useNavigate,Link} from 'react-router-dom'
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import '../../css/Login.css';
 import {signIn} from '../../api/userApi'
@@ -28,10 +27,10 @@ function Login() {
     if (Value==='email')  delete FormData.phone
     else                  delete FormData.email
     signIn(FormData).then((res)=>{
-      NotificationManager.success('Đăng nhập thành công')
       localStorage.setItem("name",res.user.name);
       localStorage.setItem("token",res.token);
-      navigate('/')
+      if (Number(res.user.isAdmin)===0) navigate('/')
+      else                              navigate('/adm_man_user')
       
     }).catch((error)=>{
       console.log(error)
@@ -78,7 +77,6 @@ function Login() {
                 
             </div>
         </div>
-        <NotificationContainer/>
     </div>  
   );
 }

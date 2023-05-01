@@ -112,7 +112,7 @@ export const editProfile = async (token, formValue) => {
 export const setAvatar = async (token, formValue) => {
   const res = await axios({
     method: "patch",
-    url: `http://localhost:3001/user/setAvatar`,
+    url: `https://jsonplaceholder.typicode.com/todos/1`,
     data: formValue,
     headers: {
       Authorization: `Bearer ${token}`,
