@@ -12,6 +12,7 @@ import Order from './Component/dat/Order';
 import AddItemToCart from './Component/dat/AddItemToCart';
 import Confirmation from './Component/dat/Confirmation';
 import Signup from './Component/dat/Signup';
+import InforUser from './Component/dat/InforUser';
 import HomePage from './Component/khoa/homePage';
 import ErrorPage from './Component/khoa/ErrorPage';
 import Feedback from './Component/khoa/Feedback';
@@ -24,6 +25,9 @@ import PrePaymentM from './Component/khoa/PrePaymentM';
 
 import Manage_employee from './Component/vien/Manage_employee';
 import Manage_user from './Component/vien/Manage_user';
+import EditInfor from './Component/dat/EditInfor';
+import ChangePassword from './Component/dat/ChangePassword';
+
 
 // function App() {
 //   return (
@@ -39,9 +43,12 @@ class App extends Component {
       <div>
         
          <Routes>
-        <Route exact path="/"  element={<HomePage/>}/>
         <Route path="/login"  element={<Login/>}/>
+        <Route exact path="/"  element={<HomePage/>}/>
         <Route path="/forgotpass"  element={<ForgotPassword/>}/>
+        <Route path="/changepass"  element={<ChangePassword/>}/>
+        <Route path="/inforuser"  element={<InforUser/>}/>
+        <Route path="/editinfor"  element={<EditInfor/>}/>
         <Route path="/order"  element={<Order/>}/>
         <Route path="/addtocart"  element={<AddItemToCart/>}/>
         <Route path="/confirm"  element={<Confirmation/>}/>
@@ -56,9 +63,9 @@ class App extends Component {
         <Route path="/adm_man_emp"  element={<Manage_employee/>}/>
         <Route path="/adm_man_user"  element={<Manage_user/>}/>
 
-
         <Route path="*"  element={<ErrorPage/>}/>
          </Routes>
+       
       </div>
     );
   }
