@@ -1,178 +1,116 @@
 import React, { useState } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
 import '../../css/vien/AddEmployeeForm.css'
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
-import {Dropdown } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faX} from '@fortawesome/free-solid-svg-icons'
+import {addStaff} from '../../api/adminApi'
 import ShowWarning from './ShowWarning'
-function AddEmployeeForm() {
+import {getAllStaff} from '../../api/adminApi'
+function AddEmployeeForm({setDataa,setShowForm}) {
+  const [isVisible, setIsVisible] = useState(true);
+  let navigate=useNavigate()
+  const [data,setData]=useState({
+    name              : "",
+    email             : "",
+    phone             : "",
+    password          : "",
+    address           : ""
+  })
+
+
+  function handle(e){
+    const newData={...data}
+    newData[e.target.id]=e.target.value
+    setData(newData)
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      console.log("check");
+      const res = await addStaff(data, localStorage.getItem('token'));
+      console.log(res);
+      alert(res.message);
+      setIsVisible(false);
+      getAllStaff(localStorage.getItem('token'))
+      .then(res => {
+        if (res && Array.isArray(res)) {
+          setDataa(res);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    } catch (error) {
+      console.log(error.response.data);
+      alert(error.response.data.error);
+    }
+  }
+  
+  
   const [showWarning, setShowWarning] = useState(false);
   const handleShowWarning = () => {
     setShowWarning(true);
   }
-  const [day, setDay] = useState('');
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
-  const [selectedGender, setSelectedGender] = useState("");
-  const handleDayChange = (event) => {
-    setDay(event.target.value);
-  };
 
-  const handleMonthChange = (event) => {
-    setMonth(event.target.value);
-  };
-
-  const handleYearChange = (event) => {
-    setYear(event.target.value);
-  };
-  const handleGenderChange = (event) => {
-    setSelectedGender(event.target.value);
-  };
-  const [selectedAccountType, setSelectedAccountType] = useState(null);
-
-  const handleSelect = (eventKey) => {
-    setSelectedAccountType(eventKey);
-  };
 
   return (
-    
+    <>
+    {isVisible && (    
     <div className='background'>
-
       <div className='form'>
         <div className='form_header'>
           <h3>Thêm nhân viên</h3>
-          <FontAwesomeIcon icon={faX} class="icon" onClick={handleShowWarning}></FontAwesomeIcon>
-          {showWarning && <ShowWarning />}
+          <FontAwesomeIcon icon={faX} class="icon" style={{ cursor: 'pointer' }} onClick={handleShowWarning}></FontAwesomeIcon>
+          {showWarning && <ShowWarning setIsVisible={setIsVisible} setShowWarning={setShowWarning} showWarning={showWarning} setShowForm={setShowForm}/>}
         </div>
       <Form>
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-        <Col sm="6">
-          <Form.Control type="text" placeholder="Họ" />
-        </Col>
-        <Col sm="6">
-          <Form.Control type="text" placeholder="Tên" />
-        </Col>
-      </Form.Group>
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+      <Form.Group as={Row} className="mb-3">
         <Col sm="12">
-          <Form.Control type="text" placeholder="User" />
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.name} id="name" placeholder="Họ và tên" />
         </Col>
       </Form.Group>
-      <Form.Group as={Row} className="mb-3" controlId="">
-        <Col sm="4">
+      <Form.Group as={Row} className="mb-3">
+        <Col sm="12">
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.email} id="email" placeholder="Email" />
+        </Col>
+      </Form.Group>
+      <Form.Group as={Row} className="mb-3">
+        <Col sm="12">
         <Form.Control
-          type="tel"
+          onChange={e=>handle(e)} value={data.phone}
+          type="text"
+          id = "phone"
           placeholder="Số điện thoại"
           pattern="[0-9]{10}"
           required
         />
         </Col>
-        <Col sm="8">
-          <Form.Control type="text" placeholder="Email" />
-        </Col>
       </Form.Group>
-      <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-        <Col sm="12">
-          <Form.Control type="text" placeholder="Password" />
-        </Col>
-      </Form.Group>
-
-      <div style={{display:'flex',justifyContent:'left'}}>Sinh nhật</div>
       <Form.Group as={Row} className="mb-3">
-        <Col sm={4}>
-          <Form.Control as="select" value={day} onChange={handleDayChange}>
-            <option value="">Ngày</option>
-            {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
-              <option key={day} value={day}>
-                {day}
-              </option>
-            ))}
-          </Form.Control>
-        </Col>
-        <Col sm={4}>
-          <Form.Control as="select" value={month} onChange={handleMonthChange}>
-            <option value="">Tháng</option>
-            {Array.from({ length: 12 }, (_, i) => i + 1).map((month) => (
-              <option key={month} value={month}>
-                {month}
-              </option>
-            ))}
-          </Form.Control>
-        </Col>
-        <Col sm={4}>
-        <Form.Control as="select" value={month} onChange={handleYearChange}>
-            <option value="">Năm</option>
-            {Array.from({ length: 120 }, (_, i) => 1900 + i).map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </Form.Control>
+        <Col sm="12">
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.password} id="password" placeholder="Password" />
         </Col>
       </Form.Group>
-      <div style={{display:'flex',justifyContent:'left'}}>Giới tính</div>
-      <Form.Group  as={Row} className="mb-3">
-        <Col sm={4}>
-          <Form.Check
-            type="radio"
-            label="Nam"
-            name="gender"
-            id="male"
-            value="Nam"
-            checked={selectedGender === "Nam"}
-            onChange={handleGenderChange}
-          />
-        </Col>
-        <Col sm={4}>
-        <Form.Check
-            type="radio"
-            label="Nữ"
-            name="gender"
-            id="female"
-            value="Nữ"
-            checked={selectedGender === "Nữ"}
-            onChange={handleGenderChange}
-          />
-        </Col>
-        <Col sm={4}>
-        <Form.Check
-            type="radio"
-            label="Khác"
-            name="gender"
-            id="other"
-            value="Khác"
-            checked={selectedGender === "Khác"}
-            onChange={handleGenderChange}
-          />
-        </Col>
-        </Form.Group>
-        <Form.Group as={Row} className="mb-3">
-        <Col sm="6">
-        <Dropdown onSelect={handleSelect}>
-          <Dropdown.Toggle variant="dark" id="account-type-dropdown">
-          {selectedAccountType || "Chọn loại tài khoản"}
-          </Dropdown.Toggle>
 
-          <Dropdown.Menu>
-          <Dropdown.Item eventKey="admin">Admin</Dropdown.Item>
-          <Dropdown.Item eventKey="user">User</Dropdown.Item>
-          <Dropdown.Item eventKey="employee">Employee</Dropdown.Item>
-          </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-        <Col sm="6">
-        <Form.Control type="text" placeholder="Mức lương" />
-        </Col>
-        </Form.Group>
-        <Form.Group>
-              <button class="btn btn-success">Lưu thông tin</button>
-        </Form.Group>
+      <Form.Group as={Row} className="mb-3">
+      <Col sm="12">
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.address} id="address" placeholder="Địa chỉ" />
+      </Col>
+      </Form.Group>
+
+      <Form.Group>
+            <button class="btn btn-success" onClick={e=>handleSubmit(e)}>Lưu thông tin</button>
+      </Form.Group>
     </Form>
       </div>
     </div>
+    )}
+  </>
   );
 }
 

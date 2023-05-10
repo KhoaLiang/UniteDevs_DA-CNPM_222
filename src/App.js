@@ -21,7 +21,7 @@ import PaymentB from './Component/khoa/PaymentB';
 import PaymentM from './Component/khoa/PaymentM';
 import PrePaymentB from './Component/khoa/PrePaymentB';
 import PrePaymentM from './Component/khoa/PrePaymentM';
-
+import ShowProduct from './Component/quang/order';
 import Manage_employee from './Component/vien/Manage_employee';
 import Manage_user from './Component/vien/Manage_user';
 
@@ -55,7 +55,7 @@ class App extends Component {
         <Route path="/prepaymentm"  element={<PrePaymentM/>}/>
         <Route path="/adm_man_emp"  element={<Manage_employee/>}/>
         <Route path="/adm_man_user"  element={<Manage_user/>}/>
-
+        <Route path="/adm_order"  element={<ShowProduct/>}/>
 
         <Route path="*"  element={<ErrorPage/>}/>
          </Routes>
