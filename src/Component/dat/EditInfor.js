@@ -1,5 +1,6 @@
 import { useState ,useEffect} from 'react';
 import React from 'react';
+import {message} from 'antd'
 
 import {editProfile,getProfile} from '../../api/userApi'
 import '../../css/EditInfor.css'
@@ -18,7 +19,7 @@ function EditInfor() {
 
     useEffect(()=>{
         getProfile(localStorage.getItem("token")).then((res)=>{
-            console.log(res)
+            
             setData(res)
           }).catch((error)=>{
             console.log(error)
@@ -36,7 +37,7 @@ function EditInfor() {
       e.preventDefault()
       const FormData={...data}
       editProfile(localStorage.getItem("token"),FormData).then((res)=>{
-        alert("cập nhật thông tin người dùng thành công")
+        message.success("cập nhật thông tin người dùng thành công")
       }).catch((error)=>{
         console.log(error)
     })

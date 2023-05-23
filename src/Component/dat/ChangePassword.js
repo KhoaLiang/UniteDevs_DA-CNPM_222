@@ -1,5 +1,6 @@
 import { useState} from 'react';
 import React from 'react';
+import {message} from 'antd'
 
 import {changePassword} from '../../api/userApi'
 import '../../css/ChangePassword.css'
@@ -26,7 +27,7 @@ function ChangePassword() {
       const FormData={...data}
       console.log("dat dep trai")
       changePassword(localStorage.getItem("token"),FormData).then((res)=>{
-        alert("cập nhật mật khẩu thành công")
+        message.success("đổi mật khẩu thành công")
       }).catch((error)=>{
         console.log(error)
     })
