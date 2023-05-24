@@ -1,7 +1,7 @@
 import '../../css/Footer.css';
 function Footer() {
   return (
-    <div className="footer py-2 lh-lg mt-5">
+    <div className="footer mb-3 lh-lg mt-5">
         <div className="container">
             <div className="row text-dark col-12">
                 <div className="col-3">

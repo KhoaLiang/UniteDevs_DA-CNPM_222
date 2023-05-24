@@ -8,7 +8,7 @@ class OrderTrack extends Component {
       
       <div>
         <Header/>
-        <h2>Order Tracking page</h2>
+        <h2 className='text-center'>Order Tracking page</h2>
         <div class="container">
     <div class="card">
         <header class="card-header"> My Orders / Tracking </header>
@@ -34,7 +34,7 @@ class OrderTrack extends Component {
                     <figure class="itemside mb-3">
                         <div class="aside"><img src="https://i.imgur.com/iDwDQ4o.png" class="img-sm border"/></div>
                         <figcaption class="info align-self-center">
-                            <p class="title">Dell Laptop with 500GB HDD <br/> 8GB RAM</p> <span class="text-muted">$950 </span>
+                            <p class="title">Dell Laptop  <br/></p> <span class="text-muted">$950 </span>
                         </figcaption>
                     </figure>
                 </li>
@@ -42,7 +42,7 @@ class OrderTrack extends Component {
                     <figure class="itemside mb-3">
                         <div class="aside"><img src="https://i.imgur.com/tVBy5Q0.png" class="img-sm border"/></div>
                         <figcaption class="info align-self-center">
-                            <p class="title">HP Laptop with 500GB HDD <br/> 8GB RAM</p> <span class="text-muted">$850 </span>
+                            <p class="title">HP Laptop  <br/></p> <span class="text-muted">$850 </span>
                         </figcaption>
                     </figure>
                 </li>
@@ -50,13 +50,13 @@ class OrderTrack extends Component {
                     <figure class="itemside mb-3">
                         <div class="aside"><img src="https://i.imgur.com/Bd56jKH.png" class="img-sm border"/></div>
                         <figcaption class="info align-self-center">
-                            <p class="title">ACER Laptop with 500GB HDD <br/> 8GB RAM</p> <span class="text-muted">$650 </span>
+                            <p class="title">ACER Laptop  <br/></p> <span class="text-muted">$650 </span>
                         </figcaption>
                     </figure>
                 </li>
             </ul>
             <hr/>
-            <a href="#" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
+            <a href="orderman" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
         </div>
     </div>
 </div>
