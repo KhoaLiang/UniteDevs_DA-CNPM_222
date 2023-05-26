@@ -7,7 +7,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faX} from '@fortawesome/free-solid-svg-icons'
 import {getProfile} from '../../api/userApi'
 import {editProfile} from '../../api/userApi'
-import ShowWarning from './ShowWarning'
+import ShowWarning1 from './ShowWarning1'
 function EditForm({setShowEditInfo, showEditInfo}) {
   const [user, setUser] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
@@ -49,7 +49,7 @@ function EditForm({setShowEditInfo, showEditInfo}) {
         <div className='form_header'>
           <h3>Chỉnh sửa thông tin</h3>
           <FontAwesomeIcon icon={faX} class="icon" style={{ cursor: 'pointer' }} onClick={handleShowWarning} ></FontAwesomeIcon>
-          {showWarning && <ShowWarning setIsVisible={setShowEditInfo} setShowWarning={setShowWarning} showWarning={showWarning}/>}
+          {showWarning && <ShowWarning1 setIsVisible={setShowEditInfo} setShowWarning={setShowWarning} showWarning={showWarning} />}
         </div>
       <Form>
       <Form.Group as={Row} className="mb-3">

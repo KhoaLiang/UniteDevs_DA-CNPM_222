@@ -43,23 +43,26 @@ function Manage_employee() {
     }
   };
 
-  const handleShowForm = () => {
-    setShowForm(true);
+  const handleShowForm = async () => {
+    await setShowForm(true);
   }
   
-  const showEditForm = () => {
-    setShowEditInfo(true);
+  const showEditForm = async () => {
+    await setShowEditInfo(true);
   }
-  const handleShowDeleteForm = (id) =>{
-    setSelectedEmployeeId(id);
-    setShowDeleteForm(true);
+  
+  const handleShowDeleteForm = async (id) => {
+    await setSelectedEmployeeId(id);
+    await setShowDeleteForm(true);
   }
-  const handleInfoForm = (id) =>{
-    setSelectedEmployeeId1(id);
-    setShowInfoForm(true);
+  
+  const handleInfoForm = async (id) => {
+    await setSelectedEmployeeId1(id);
+    await setShowInfoForm(true);
   }
-  const showLogOutForm = () =>{
-    setShowLogOut(true);
+  
+  const showLogOutForm = async () => {
+    await setShowLogOut(true);
   }
 
   const [data, setData] = useState([]);
@@ -68,6 +71,7 @@ function Manage_employee() {
       const res = await getAllStaff(localStorage.getItem('token'));
       if (res && Array.isArray(res)) {
         setData(res);
+        console.log("aaaa111");
       }
     } catch (error) {
       console.log(error);

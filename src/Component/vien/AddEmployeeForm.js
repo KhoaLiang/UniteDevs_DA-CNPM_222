@@ -40,6 +40,7 @@ function AddEmployeeForm({setDataa,setShowForm}) {
       .then(res => {
         if (res && Array.isArray(res)) {
           setDataa(res);
+          setShowForm(false);
         }
       })
       .catch(error => {
