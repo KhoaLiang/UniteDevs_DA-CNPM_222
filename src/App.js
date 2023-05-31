@@ -62,19 +62,40 @@ function App() {
       }).catch((error)=>{
         message.error("thất bại")
         console.log(error)
-    })
-      // let phone1 = await getProductByCategory("CellPhone");
-      
+      })
+      // let phone1 = await getProductByCategory("CellPhone");      
       // setPhone(phone1.data);
-      let laptop1 = await getProductByCategory("Laptop");
-      
-      setLaptop(laptop1.data);
-      let watch1 = await getProductByCategory("watch");
-      
-      setWatch(watch1.data);
-      let ipad1 = await getProductByCategory("Tablet");
-      
-      setIpad(ipad1.data);
+      getProductByCategory("Laptop").then((res)=>{
+        message.success("thành công")
+        setLaptop(res.data)
+        
+      }).catch((error)=>{
+        message.error("thất bại")
+        console.log(error)
+      })
+      // let laptop1 = await getProductByCategory("Laptop");      
+      // setLaptop(laptop1.data);
+
+      getProductByCategory("watch").then((res)=>{
+        message.success("thành công")
+        setWatch(res.data)
+        
+      }).catch((error)=>{
+        message.error("thất bại")
+        console.log(error)
+      })
+      // let watch1 = await getProductByCategory("watch");      
+      // setWatch(watch1.data);
+      getProductByCategory("Tablet").then((res)=>{
+        message.success("thành công")
+        setIpad(res.data)
+        
+      }).catch((error)=>{
+        message.error("thất bại")
+        console.log(error)
+      })
+      // let ipad1 = await getProductByCategory("Tablet");      
+      // setIpad(ipad1.data);
     })();
   },[cartItems])
 
