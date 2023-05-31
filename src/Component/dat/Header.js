@@ -69,18 +69,17 @@ function Header() {
                         </div>                   
                 </div>
                 <div className="col-1">
-                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping"></i>
+                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}></i>
                 </div>
             </div>
             <div className="row  justify-content-center">
-                <div className="col-1">Phone</div>
-                <div className="col-1">Laptop</div>
-                <div className="col-1">Tablet</div>
-                <div className="col-1">Accessory</div>
-                <div className="col-1">SmartWatch</div>
-                <div className="col-1">Clock</div>
-                <div className="col-2">Sims,Scratch Cards</div>
-                <div className="col-2">Sims,Scratch Cards</div>
+                <div className="col-1 btn btn-danger" onClick={()=>{navigate('/cellphones')}}>Phone</div>
+                <div className="col-1 btn btn-danger" onClick={()=>{navigate('/laptop')}}>Laptop</div>
+                <div className="col-1 btn btn-danger" onClick={()=>{navigate('/ipad')}}>Tablet</div>
+                <div className="col-1 btn btn-primary">Accessory</div>
+                <div className="col-1 btn btn-danger" onClick={()=>{navigate('/watch')}}>SmartWatch</div>
+                <div className="col-1 btn btn-primary">Clock</div>
+                <div className="col-2 btn btn-primary">Sims,Scratch Cards</div>
             </div>
         </div>
     </div>  

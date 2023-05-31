@@ -3,17 +3,15 @@ import '../../css/vien/ShowWarning.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 
-function ShowWarning({setIsVisible,setShowWarning,showWarning,setShowForm}) {
+function ShowWarning1({setIsVisible,setShowWarning,showWarning}) {
 
   const handleConfirm = () => {
     setIsVisible(false);
     setShowWarning(false);
-    setShowForm(false);
   };
   const handleCancel = () => {
     setIsVisible(true);
     setShowWarning(false);
-    setShowForm(true);
   };
   return (
     <>
@@ -37,4 +35,4 @@ function ShowWarning({setIsVisible,setShowWarning,showWarning,setShowForm}) {
     </>
     );
   }
-export default ShowWarning;
+export default ShowWarning1;

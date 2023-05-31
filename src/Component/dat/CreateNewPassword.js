@@ -1,4 +1,4 @@
-import '../css/CreateNewPassword.css';
+import '../../css/CreateNewPassword.css';
 function CreateNewPassword() {
   return (
     <div class="CreateNewPassword  d-flex align-items-center">

@@ -11,13 +11,13 @@
     text-align: center;
     justify-content: center;
 }
-.warning{
-    width:25vw;
+
+.edit{
+    width:33vw;
     height:auto;
-    background-color: #ffffff;
-    padding: 18px;
+    background-color: #ffffff !important;
+    padding: 30px 18px;
     border-radius: 5px;
-    color:black
 }
 .edit-btn{
     margin-top: 20px;
