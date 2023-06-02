@@ -40,7 +40,7 @@
         display:block !important;
         margin-bottom: 10px !important;
     }
-    .search{
+    .search1{
         display:flex !important;
     }
     .employee_list{
@@ -123,16 +123,19 @@ a {
     padding:10px;
     min-width: 100px;
 }
-.search{
+.search1{
     height:100%;
     width:50%;
     display: flex;
     justify-content: space-between;
 }
 
+.search1 button{
+    max-width: 30%;
+}
 .fill_telephone1{
     width:32%;
-    min-width: 100px;
+    min-width: 200px;
     padding: 12px 10px; line-height: 28px;
     border: solid 1px #111;
     justify-content: center;

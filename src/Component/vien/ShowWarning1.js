@@ -19,13 +19,14 @@ function ShowWarning1({setIsVisible,setShowWarning,showWarning}) {
     <div className="background">
         <div className='warning'>
         <h3>
-            Bạn có chắc muốn thoát ra không?
+            Are you sure you want to exit? 
         </h3>
         <span>
+            Tất cả dữ liệu đã thêm hoặc thay đổi sẽ không được lưu
         </span>
         <div class="edit-btn">
-            <button type="button" class="btn btn-success" onClick={handleConfirm}>Xác nhận</button>
-            <button type="button" class="btn btn-danger" onClick={handleCancel}>Hủy bỏ</button>
+            <button type="button" class="btn btn-success" onClick={handleConfirm}>Confirm</button>
+            <button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button>
         </div>
 
         </div>

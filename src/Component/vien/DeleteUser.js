@@ -34,16 +34,16 @@ function DeleteUser({showDeleteForm,setShowDeleteForm,Id_emp}) {
     <div className="background">
         <div className='edit'>
         {user && (
-          <h3>
-            Bạn có chắc muốn xóa khách hàng {user.name} không?
+          <h3>         
+            Are you sure you want to delete customer {user.name}?
           </h3>
         )}
         <span>
-            Việc này sẽ gây mất mát dữ liệu
+            This action will result in data loss.
         </span>
         <div class="edit-btn">
-            <button type="button" class="btn btn-success" onClick={() => handleDelete(Id_emp)}>Xác nhận</button>
-            <button type="button" class="btn btn-danger" onClick={handleCancel}>Hủy bỏ</button>
+            <button type="button" class="btn btn-success" onClick={() => handleDelete(Id_emp)}>Confirm</button>
+            <button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button>
         </div>
 
         </div>

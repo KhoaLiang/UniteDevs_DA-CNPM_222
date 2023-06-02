@@ -21,13 +21,14 @@ function ShowWarning({setIsVisible,setShowWarning,showWarning,setShowForm}) {
     <div className="background">
         <div className='warning'>
         <h3>
-            Bạn có chắc muốn thoát ra không?
+            Are you sure you want to exit? 
         </h3>
-        <span>
+        <span>     
+            All added or modified data will not be saved.
         </span>
-        <div class="edit-btn gap-4">
-            <button type="button" class="btn btn-success" onClick={handleConfirm}>Xác nhận</button>
-            <button type="button" class="btn btn-danger" onClick={handleCancel}>Hủy bỏ</button>
+        <div class="edit-btn">
+            <button type="button" class="btn btn-success" onClick={handleConfirm}>Confirm</button>
+            <button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button>
         </div>
 
         </div>

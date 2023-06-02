@@ -15,6 +15,10 @@
     margin-bottom: 20px !important;
 }
 
+.container-header >div{
+    width: 100%;
+}
+
 .user {
     position: relative;
     cursor: pointer;

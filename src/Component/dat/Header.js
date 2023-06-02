@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <div className="bg-info header d-flex justify-content-center text-white ">
-        <div className="container ">
+        <div className="container container-header">
             <div className="row d-flex" >
                 <div className="col-4 d-flex justify-content-start">
                 <div className="d-inline-block pe-lg-5 pe-sm-2">Get the app</div>

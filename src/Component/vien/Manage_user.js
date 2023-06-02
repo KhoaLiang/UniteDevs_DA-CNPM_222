@@ -76,26 +76,26 @@ function Manage_user() {
           </Col>
           <Col md={10} className="edit-right">
             <div class="manage_search1">
-              <div class="employee_list">Danh sách nhân viên</div>
-              <div class="search">
+              <div class="employee_list">Customer list</div>
+              <div class="search1">
                 <input
                   class="fill_telephone1"
                   type="tel"
                   id="phone-input"
-                  placeholder="Nhập số điện thoại"
+                  placeholder="Enter a phone number"
                 />
                 <button class="btn btn-primary" onClick={handleSearchClick}>
-                  Tìm kiếm
+                  Search
                 </button>
               </div>
             </div>
             <Table striped bordered hover className="table-container">
               <thead>
                 <tr>
-                  <th>Họ và tên</th>
+                  <th>Full name</th>
                   <th>Email</th>
-                  <th>Số điện thoại</th>
-                  <th>Hoạt động</th>
+                  <th>Telephone number</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -111,7 +111,7 @@ function Manage_user() {
                           class="btn btn-info dieu_chinh"
                           onClick={() => handleOrder(staff.id)}
                         >
-                          Đơn hàng
+                          Show orders
                         </button>
                       </a>
                       <button
@@ -119,14 +119,14 @@ function Manage_user() {
                         class="btn btn-success dieu_chinh"
                         onClick={() => handleInfoForm(staff.id)}
                       >
-                        Thông tin
+                        Show info
                       </button>
                       <button
                         type="button"
                         class="btn btn-danger dieu_chinh"
                         onClick={() => handleShowDeleteForm(staff.id)}
                       >
-                        Xóa KH
+                        Delete
                       </button>
                     </td>
                     {showDeleteForm && selectedEmployeeId === staff.id && (

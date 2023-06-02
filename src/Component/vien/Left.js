@@ -45,12 +45,6 @@ function Left() {
                 Order Manager
                 </div>
             </a>
-            <a href='/adm_man_user'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '4' ? 'manage-employee' : ''}` + " rounded hover" } onClick={()=>{localStorage.setItem("tag", "4");}}>
-                <FontAwesomeIcon icon={faChartLine} class="icon-1"></FontAwesomeIcon>
-                Thống kê
-                </div>
-            </a>
             <a href='/adm_man_emp'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '5' ? 'manage-employee' : ''}` + " rounded" } onClick={()=>{localStorage.setItem("tag", "5");}}>
                 <FontAwesomeIcon icon={faUsers} class="icon-1"></FontAwesomeIcon>

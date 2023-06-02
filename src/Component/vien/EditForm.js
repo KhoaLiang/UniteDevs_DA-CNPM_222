@@ -45,7 +45,7 @@ function EditForm({setShowEditInfo, showEditInfo}) {
     <div className='background'>
       <div className='form'>
         <div className='form_header'>
-          <h3>Chỉnh sửa thông tin</h3>
+          <h3>Edit information</h3>
           <FontAwesomeIcon icon={faX} class="icon" style={{ cursor: 'pointer' }} onClick={handleShowWarning} ></FontAwesomeIcon>
           {showWarning && <ShowWarning1 setIsVisible={setShowEditInfo} setShowWarning={setShowWarning} showWarning={showWarning} />}
         </div>
@@ -53,14 +53,14 @@ function EditForm({setShowEditInfo, showEditInfo}) {
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
           {user && 
-          <Form.Control type="text" onChange={e=>handle(e)} value={user.name} id="name" placeholder="Họ và tên" />
+          <Form.Control type="text" onChange={e=>handle(e)} value={user.name} id="Full name" placeholder="Họ và tên" />
           }
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
         {user && 
-          <Form.Control type="text" onChange={e=>handle(e)} value={user.email} id="email" placeholder="Email" />
+          <Form.Control type="text" onChange={e=>handle(e)} value={user.email} id="Email" placeholder="Email" />
         }
         </Col>
       </Form.Group>
@@ -72,7 +72,7 @@ function EditForm({setShowEditInfo, showEditInfo}) {
           onChange={e=>handle(e)}
           type="text"
           id = "phone"
-          placeholder="Số điện thoại"
+          placeholder="Telephone number"
           pattern="[0-9]{10}"
           required
         />
@@ -82,12 +82,12 @@ function EditForm({setShowEditInfo, showEditInfo}) {
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
         {user && 
-          <Form.Control type="text" onChange={e=>handle(e)} value={user.address} id="address" placeholder="Địa chỉ"/>
+          <Form.Control type="text" onChange={e=>handle(e)} value={user.address} id="Address" placeholder="Địa chỉ"/>
         }
           </Col>
       </Form.Group>
       <Form.Group>
-            <button class="btn btn-success" onClick={e=>handleSubmit(e)}>Lưu thay đổi</button>
+            <button class="btn btn-success" onClick={e=>handleSubmit(e)}>Save</button>
       </Form.Group>
     </Form>
       </div>

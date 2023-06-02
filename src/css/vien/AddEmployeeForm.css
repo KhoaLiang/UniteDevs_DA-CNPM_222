@@ -13,7 +13,9 @@
     justify-content: center;
     color:black;
 }
-
+.can_giua{
+    text-align: center;
+}
 .form{
     position: fixed;
     width:30vw;
@@ -24,12 +26,16 @@
     padding:10px;
     color:black;
 }
-
+.can_giua_add_form{
+    display:flex;
+    justify-content: center;
+}
 
 .form_header{
     display:flex;
     justify-content: space-between;
     align-items: center;
+    width:100%;
 }
 .icon{
     width:20px;
