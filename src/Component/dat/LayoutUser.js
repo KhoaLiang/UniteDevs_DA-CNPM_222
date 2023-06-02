@@ -20,9 +20,9 @@ function LayoutUser({children}) {
     },[])
 
     const handle=(e)=>{
-        if (e.target.innerHTML==='Thông tin của tôi')       navigate('/inforuser')        
-        else if(e.target.innerHTML==='Chỉnh sửa thông tin') navigate('/editinfor') 
-        else if(e.target.innerHTML==='Đổi mật khẩu')        navigate('/changepass')  
+        if (e.target.innerHTML==='My information')       navigate('/inforuser')        
+        else if(e.target.innerHTML==='Edit informationn') navigate('/editinfor') 
+        else if(e.target.innerHTML==='Change Passworu')        navigate('/changepass')  
 
         
     }
@@ -37,11 +37,11 @@ function LayoutUser({children}) {
                         <div className='col-2 navbar'>
                             <h5 className='mt-3 border-bottom pb-4'>Nguyễn Tấn Đạt</h5>
                             <ul className='mt-4'>
-                                <li onClick={e=>handle(e)} id='infor' className='pb-3'>Thông tin của tôi</li>
-                                <li onClick={e=>handle(e)} id='editinfor' className='pb-3'>Chỉnh sửa thông tin</li>
-                                <li onClick={e=>handle(e)} id='changepass' className='pb-3'>Đổi mật khẩu</li>
-                                <li onClick={e=>handle(e)} className='pb-3'>Đơn mua</li>
-                                <li onClick={e=>handle(e)} className='pb-3'>Thông báo</li>
+                                <li onClick={e=>handle(e)} id='infor' className='pb-3'>My information</li>
+                                <li onClick={e=>handle(e)} id='editinfor' className='pb-3'>Edit information</li>
+                                <li onClick={e=>handle(e)} id='changepass' className='pb-3'>Change Password</li>
+                                <li onClick={e=>handle(e)} className='pb-3'>Purchase form</li>
+                                <li onClick={e=>handle(e)} className='pb-3'>Notification</li>
                             </ul>
                         </div>
                         <div className='col-6 bg-white ps-5'>

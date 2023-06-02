@@ -21,7 +21,7 @@ function handle(e){
 function handleSubmit(e){
   e.preventDefault()
   forgetPassword(data).then((res)=>{
-    message.success("đổi mật khẩu thành công")
+    message.success("password update successful")
     navigate('/login')
   }).catch((error)=>{
     console.log(error)
@@ -33,11 +33,11 @@ function handleSubmit(e){
     <div className="ForgotPassword  d-flex align-items-center">
         <div className="container d-flex justify-content-center align-items-center ">
             <div className=" content form-sign-up col-4  w-25 border p-5 rounded rounded-3 ">
-                <h1 className="text-center mb-5">Quên mật khẩu</h1>
+                <h1 className="text-center mb-5">Forgot password</h1>
                 <form onSubmit={e=>handleSubmit(e)}>
-                  <input type="text" onChange={(e)=>handle(e)} value={data.email} id='email' className="form-control mb-2" placeholder="Nhập Email" />:
-                  <input type="text" onChange={(e)=>handle(e)} value={data.phone} id='phone' className="form-control mb-2" placeholder="Nhập Số điện thoại" />                 
-                  <button className="btn rounded-pill w-100 my-4">Gửi mã</button>               
+                  <input type="text" onChange={(e)=>handle(e)} value={data.email} id='email' className="form-control mb-2" placeholder="Enter email" />:
+                  <input type="text" onChange={(e)=>handle(e)} value={data.phone} id='phone' className="form-control mb-2" placeholder="Enter phone" />                 
+                  <button className="btn rounded-pill w-100 my-4">Send code</button>               
                 </form>
             </div>
         </div>
