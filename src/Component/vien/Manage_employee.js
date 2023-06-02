@@ -1,23 +1,13 @@
 import { Table,Container, Row, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import '../../css/vien/Manage_employee.css'
-import myAvatar from '../../img/image1.png';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
-import {faUser} from '@fortawesome/free-solid-svg-icons'
-import {faBars} from '@fortawesome/free-solid-svg-icons'
-import {faBagShopping} from '@fortawesome/free-solid-svg-icons'
-import {faChartLine} from '@fortawesome/free-solid-svg-icons'
-import {faUsers} from '@fortawesome/free-solid-svg-icons'
-import {faEdit} from '@fortawesome/free-solid-svg-icons'
-import {faSignOut} from '@fortawesome/free-solid-svg-icons'
 import AddEmployeeForm from './AddEmployeeForm'
 import InfoEmployee from './InfoEmployee'
 import DeleteEmployee from './DeleteEmployee'
-import EditForm from './EditForm'
-import LogOut from './LogOut'
 import {getAllStaff} from '../../api/adminApi'
 import {getUserByPhone} from '../../api/adminApi'
+import Headerr from './Header'
+import Left from './Left'
 function Manage_employee() {
   const [showForm, setShowForm] = useState(false);
   const [showEditInfo, setShowEditInfo] =  useState(false);
@@ -86,73 +76,14 @@ function Manage_employee() {
     pageNumbers.push(i);
   }
   return (
-    <div style={{padding: '0px',minWidth: '100vw'}}>
-        <div style={{ backgroundColor: '#eb5b69',color:'#fff',display:'flex',justifyContent:'space-between', textAlign:'center', alignItems:'center',padding:'5px 20px'}}>
-          <h4>Siêu thị điện thoại</h4>
-        
-          <div class="image_notify1">
-            <div class="editinfo1">
-            <FontAwesomeIcon icon={faEdit} class="icon-2" onClick={showEditForm}></FontAwesomeIcon>
-            </div>
-            {showEditInfo && <EditForm setShowEditInfo={setShowEditInfo} showEditInfo={showEditInfo}/>}
-            <div class="logout">
-            <FontAwesomeIcon icon={faSignOut} class="icon-2" onClick={showLogOutForm}></FontAwesomeIcon>
-            </div>
-            {showLogOut && <LogOut setShowLogOut={setShowLogOut} showLogOut={showLogOut}/>}
-          </div>
-        </div>
+    <div>
+      <Headerr />
 
       <Container style={{margin: '0px', maxWidth: '100%'}} >
         <Row style={{width:'100%'}}>
           <Col md={2}>
-            <div style={{backgroundColor: 'rgba(243, 244, 246, 1)',height:'100%', position:'relative'}}>
-              <div class="image_info_arrow">
-                <div class="image_info">
-                  <div class="image">
-                      <img src={myAvatar} class="myAvatar" alt="mô tả hình ảnh" />
-                  </div>
-                  <div class="info">
-                      Hello Admin
-                  </div>
-                </div>
-                <div>
-                  <FontAwesomeIcon icon={faArrowLeft} class="icon"></FontAwesomeIcon>
-                </div>
-              </div>     
-              <div class="manage-item">
-                <a href='/adm_man_user'>
-                  <div class="edit-item">
-                  <FontAwesomeIcon icon={faUser} class="icon-1"></FontAwesomeIcon>
-                    Quản lý thành viên
-                  </div>
-                </a>
-                <a href='/adm_man_user'>
-                  <div class="edit-item">
-                    <FontAwesomeIcon icon={faBars} class="icon-1"></FontAwesomeIcon>
-                      Sản phẩm
-                  </div>
-                </a>
-                <a href='/adm_man_user'>
-                  <div class="edit-item">
-                  <FontAwesomeIcon icon={faBagShopping} class="icon-1"></FontAwesomeIcon>
-                    Đơn hàng
-                  </div>
-                </a>
-                <a href='/adm_man_user'>
-                  <div class="edit-item">
-                  <FontAwesomeIcon icon={faChartLine} class="icon-1"></FontAwesomeIcon>
-                    Thống kê
-                  </div>
-                </a>
-                <a href='/adm_man_emp'>
-                  <div class="edit-item manage-employee">
-                  <FontAwesomeIcon icon={faUsers} class="icon-1"></FontAwesomeIcon>
-                    Quản lý nhân viên
-                  </div>
-                </a>
-              </div>
-            </div>
-        </Col>
+            <Left />
+          </Col>
         <Col md={10} className="edit-right">
           <div class="manage_search1">
             <div class="employee_list">
