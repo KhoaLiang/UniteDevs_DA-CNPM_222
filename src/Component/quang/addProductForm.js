@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../css/quang/addProductForm.css";
+import "./addProductForm.css";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
@@ -8,17 +8,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 
-function AddProductForm() {
+import { getAllCategory } from "../../api/userApi";
+function AddProductForm(props) {
+  const [form, setForm] = useState([]);
   const [showWarning, setShowWarning] = useState(false);
   const handleShowWarning = () => {
     setShowWarning(true);
   };
 
-  const [showForm, setShowForm] = useState(false);
-
-  const handleHideForm = () => {
-    setShowForm(false);
-  };
   const [selectedAccountType, setSelectedAccountType] = useState(null);
 
   const handleSelect = (eventKey) => {
@@ -29,37 +26,30 @@ function AddProductForm() {
     <div className="background">
       <div className="form">
         <div className="form_header">
-          <h3>Thêm sản phẩm</h3>
+          <h3>Add Product</h3>
           <FontAwesomeIcon
+            className="icon"
             icon={faX}
-            class="icon"
-            onClick={handleHideForm}
+            onClick={() => props.setShowForm(false)}
           ></FontAwesomeIcon>
         </div>
         <Form>
           <Form.Group as={Row} className="mb-3">
             <Col>
-              <Form.Control type="text" placeholder="Tên sản phẩm" />
+              <Form.Control type="text" placeholder="Product code" />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col>
-              <Form.Control type="text" placeholder="Mô tả sản phẩm" />
+              <Form.Control type="text" placeholder="Name" />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
-            <Col sm="12">
-              <Form.Control type="text" placeholder="Giá bán" />
-            </Col>
-          </Form.Group>
-
-          <Form.Group as={Row} className="mb-3">
-            <Col sm="6">
+            <Col sm="3">
               <Dropdown onSelect={handleSelect}>
                 <Dropdown.Toggle variant="dark" id="account-type-dropdown">
-                  {selectedAccountType || "Chọn loại sản phẩm"}
+                  {selectedAccountType || "Category"}
                 </Dropdown.Toggle>
-
                 <Dropdown.Menu>
                   <Dropdown.Item eventKey="Phone">Phone</Dropdown.Item>
                   <Dropdown.Item eventKey="Tablet">Tablet</Dropdown.Item>
@@ -68,13 +58,46 @@ function AddProductForm() {
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
-            <Col sm="6">
-              <Form.Control type="text" placeholder="Nhãn hàng" />
+            <Col sm="3">
+              <Form.Control type="text" placeholder="Price" />
+            </Col>
+            <Col sm="3">
+              <Form.Control type="text" placeholder="Sale Percent" />
+            </Col>
+            <Col sm="3">
+              <Dropdown onSelect={() => {}}>
+                <Dropdown.Toggle variant="dark" id="account-type-dropdown">
+                  {selectedAccountType || "Color"}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item eventKey="Black">Black</Dropdown.Item>
+                  <Dropdown.Item eventKey="Red">Red</Dropdown.Item>
+                  <Dropdown.Item eventKey="Pink">Pink</Dropdown.Item>
+                  <Dropdown.Item eventKey="Blue">Blue</Dropdown.Item>
+                  <Dropdown.Item eventKey="Grey">Grey</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Col sm="5">
+              <Form.Control type="text" placeholder="Manufacturer" />
+            </Col>
+            <Col sm="7">
+              <Form.Control type="file" placeholder="Description Html" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} className="mb-3">
+            <Col>
+              <Form.Control type="text" placeholder="Image" />
             </Col>
           </Form.Group>
           <Form.Group>
-            <button class="btn btn-success" onClick={handleHideForm}>
-              Lưu thông tin
+            <button
+              class="btn btn-success"
+              onClick={() => props.setShowForm(false)}
+            >
+              Save
             </button>
           </Form.Group>
         </Form>
