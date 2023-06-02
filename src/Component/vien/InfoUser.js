@@ -26,14 +26,14 @@ function InfoUser({showInfoForm,setShowInfoForm,Id_emp}) {
     <div className='background'>
       <div className='form'>
         <div className='form_header'>
-          <h3>Thông tin khách hàng</h3>
+          <h3>Customer Information</h3>
           <FontAwesomeIcon icon={faX} class="icon" style={{ cursor: 'pointer' }} onClick={handleCancel}></FontAwesomeIcon>
         </div>
       <Form>
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
           {user && 
-          <Form.Control type="text" value={user.name} id="name" placeholder="Họ và tên" readOnly/>
+          <Form.Control type="text" value={user.name} id="name" placeholder="Fullname" readOnly/>
           }
         </Col>
       </Form.Group>
@@ -51,7 +51,7 @@ function InfoUser({showInfoForm,setShowInfoForm,Id_emp}) {
           value={user.phone}
           type="text"
           id = "phone"
-          placeholder="Số điện thoại"
+          placeholder="Telephone number"
           pattern="[0-9]{10}"
           required
           readOnly
@@ -62,14 +62,7 @@ function InfoUser({showInfoForm,setShowInfoForm,Id_emp}) {
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
         {user && 
-          <Form.Control type="text" value={user.password} id="password" placeholder="Password" readOnly/>
-        }
-          </Col>
-      </Form.Group>
-      <Form.Group as={Row} className="mb-3">
-        <Col sm="12">
-        {user && 
-          <Form.Control type="text" value={user.address} id="address" placeholder="Địa chỉ" readOnly/>
+          <Form.Control type="text" value={user.address} id="address" placeholder="Address" readOnly/>
         }
           </Col>
       </Form.Group>

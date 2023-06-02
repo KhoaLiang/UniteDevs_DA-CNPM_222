@@ -65,14 +65,14 @@ function AddEmployeeForm({setDataa,setShowForm}) {
     <div className='background'>
       <div className='form'>
         <div className='form_header'>
-          <h3>Thêm nhân viên</h3>
+          <h3 class="can_giua">Add employee</h3>
           <FontAwesomeIcon icon={faX} class="icon" style={{ cursor: 'pointer' }} onClick={handleShowWarning}></FontAwesomeIcon>
           {showWarning && <ShowWarning setIsVisible={setIsVisible} setShowWarning={setShowWarning} showWarning={showWarning} setShowForm={setShowForm}/>}
         </div>
       <Form>
       <Form.Group as={Row} className="mb-3">
         <Col sm="12">
-          <Form.Control type="text" onChange={e=>handle(e)} value={data.name} id="name" placeholder="Họ và tên" />
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.name} id="name" placeholder="Fullname" />
         </Col>
       </Form.Group>
       <Form.Group as={Row} className="mb-3">
@@ -86,7 +86,7 @@ function AddEmployeeForm({setDataa,setShowForm}) {
           onChange={e=>handle(e)} value={data.phone}
           type="text"
           id = "phone"
-          placeholder="Số điện thoại"
+          placeholder="Telephone number"
           pattern="[0-9]{10}"
           required
         />
@@ -100,12 +100,12 @@ function AddEmployeeForm({setDataa,setShowForm}) {
 
       <Form.Group as={Row} className="mb-3">
       <Col sm="12">
-          <Form.Control type="text" onChange={e=>handle(e)} value={data.address} id="address" placeholder="Địa chỉ" />
+          <Form.Control type="text" onChange={e=>handle(e)} value={data.address} id="address" placeholder="Address" />
       </Col>
       </Form.Group>
 
-      <Form.Group>
-            <button class="btn btn-success" onClick={e=>handleSubmit(e)}>Lưu thông tin</button>
+      <Form.Group className="can_giua_add_form">
+            <button class="btn btn-success" onClick={e=>handleSubmit(e)}>Save </button>
       </Form.Group>
     </Form>
       </div>

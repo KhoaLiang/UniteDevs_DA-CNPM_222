@@ -20,11 +20,11 @@ function LogOut({setShowLogOut, showLogOut}) {
     <div className="background">
         <div className='warning'>
         <h2>
-            Bạn có chắc muốn đăng xuất?
+        Are you sure you want to log out?
         </h2>
         <div class="edit-btn">
-            <button type="button" class="btn btn-success" onClick={handleConfirm}>Xác nhận</button>
-            <button type="button" class="btn btn-danger" onClick={handleCancel}>Hủy bỏ</button>
+            <button type="button" class="btn btn-success" onClick={handleConfirm}>Confirm</button>
+            <button type="button" class="btn btn-danger" onClick={handleCancel}>Cancel</button>
         </div>
 
         </div>
