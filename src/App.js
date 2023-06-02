@@ -57,42 +57,34 @@ function App() {
   useEffect(()=>{
     (async () =>{
       getProductByCategory("CellPhone").then((res)=>{
-        message.success("thành công")
         setPhone(res.data)
         
       }).catch((error)=>{
-        message.error("thất bại")
         console.log(error)
       })
       // let phone1 = await getProductByCategory("CellPhone");      
       // setPhone(phone1.data);
       getProductByCategory("Laptop").then((res)=>{
-        message.success("thành công")
         setLaptop(res.data)
         
       }).catch((error)=>{
-        message.error("thất bại")
         console.log(error)
       })
       // let laptop1 = await getProductByCategory("Laptop");      
       // setLaptop(laptop1.data);
 
       getProductByCategory("watch").then((res)=>{
-        message.success("thành công")
         setWatch(res.data)
         
       }).catch((error)=>{
-        message.error("thất bại")
         console.log(error)
       })
       // let watch1 = await getProductByCategory("watch");      
       // setWatch(watch1.data);
       getProductByCategory("Tablet").then((res)=>{
-        message.success("thành công")
         setIpad(res.data)
         
       }).catch((error)=>{
-        message.error("thất bại")
         console.log(error)
       })
       // let ipad1 = await getProductByCategory("Tablet");      
@@ -151,6 +143,7 @@ function onRemove(product) {
             <Route path="/prepaymentm" element={<PrePaymentM />} />
             <Route path="/adm_man_emp" element={<Manage_employee />} />
             <Route path="/adm_man_user" element={<Manage_user />} />
+            <Route path="/adm_man_product" element={<ShowProduct />} />
             <Route path="/cellphones" element={<Showcase phone={phone} />} />
             {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
             <Route path="/laptop" element={<Showcase phone={laptop} />} />
@@ -164,7 +157,6 @@ function onRemove(product) {
             {/* <Route path="/ipad/:id"  element={<ProductDetail phone={ipad}/>}/> */}
 
             <Route path="/cart-pro" element={<CartPro onRemove={onRemove} />} />
-            <Route path="/adm_man_product" element={<ShowProduct />} />
 
             {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}
             {/*Payment section  */}
