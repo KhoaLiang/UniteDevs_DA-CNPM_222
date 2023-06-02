@@ -8,6 +8,8 @@ import {faX} from '@fortawesome/free-solid-svg-icons'
 import {getProfile} from '../../api/userApi'
 import {editProfile} from '../../api/userApi'
 import ShowWarning1 from './ShowWarning1'
+import {message} from 'antd'
+
 function EditForm({setShowEditInfo, showEditInfo}) {
   const [user, setUser] = useState(null);
   const [showWarning, setShowWarning] = useState(false);
@@ -15,7 +17,6 @@ function EditForm({setShowEditInfo, showEditInfo}) {
     console.log("check use effect")
     const fetchData = async () => {
       const result = await getProfile(localStorage.getItem("token"));
-      console.log(result)
       setUser(result); // lưu trữ kết quả trả về vào state user
     };
     fetchData();
@@ -28,14 +29,11 @@ function EditForm({setShowEditInfo, showEditInfo}) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      console.log("check");
       const res = await editProfile(localStorage.getItem('token'),user);
-      console.log(res);
-      alert(res.message);
+      message.success("Update profile successfully!")
       setShowEditInfo(false);
     } catch (error) {
-      console.log(error.response.data);
-      alert(error.response.data.error);
+      message.error("Update profile failed!")
     }
   }
   const handleShowWarning = () => {

@@ -22,7 +22,6 @@ function ShowWarning1({setIsVisible,setShowWarning,showWarning}) {
             Bạn có chắc muốn thoát ra không?
         </h3>
         <span>
-            Tất cả dữ liệu đã thêm hoặc thay đổi sẽ không được lưu
         </span>
         <div class="edit-btn">
             <button type="button" class="btn btn-success" onClick={handleConfirm}>Xác nhận</button>

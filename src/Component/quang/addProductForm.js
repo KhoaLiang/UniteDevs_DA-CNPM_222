@@ -73,7 +73,7 @@ function AddProductForm(props) {
         let rs = await addProduct(form, localStorage.getItem("token"));
         return rs;
       })().then(()=>{
-        message.error("Add product successfully!")
+        message.success("Add product successfully!")
       }).catch((err)=>{
         message.error("Add product failed!")
       });
