@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
  const Product = ({phone}) => {
   const navigate=useNavigate();
+  console.log(phone);
   return (
     // style={{width: '18rem'}}
 <>
@@ -12,7 +13,8 @@ import { useNavigate } from 'react-router-dom'
       <div className="card-body">
         <h4 className="card-title">{phone.name}</h4>
         <p className="card-text">Color style:  {phone.color}</p>
-        <p className="card-text">{phone.price} VND</p>
+        <p className="card-text">{(phone.price * (100-phone.sale_percent)/100).toLocaleString()} VND</p>
+        <p className="card-text text-decoration-line-through text-danger">{phone.price.toLocaleString()} VND</p>
         <a href="#" class="btn btn-primary">Click for more detail</a>
       </div>
     </div>

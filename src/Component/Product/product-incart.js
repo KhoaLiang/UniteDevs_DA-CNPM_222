@@ -75,7 +75,7 @@ import { useContext } from 'react';
 
                  {/* Price */}
                 <p class="text-start text-md-center">
-                  <strong>{phone.quantity * phone.price} VND</strong>
+                  <strong>{phone.quantity * phone.price } VND</strong>
                 </p>
                  {/* Price */}
               </div>

@@ -10,7 +10,19 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 
 import { getAllCategory } from "../../api/userApi";
 function AddProductForm(props) {
-  const [form, setForm] = useState([]);
+  const [form, setForm] = useState({
+    code: '',
+    name: '',
+    category_id: '',
+    color: '',
+    sale_percent: '',
+    price: '',
+    manualfacturer: '',
+    html: '',
+    image: '',
+    key: [],
+    value: []
+  });
   const [showWarning, setShowWarning] = useState(false);
   const handleShowWarning = () => {
     setShowWarning(true);
@@ -20,6 +32,14 @@ function AddProductForm(props) {
 
   const handleSelect = (eventKey) => {
     setSelectedAccountType(eventKey);
+  };
+  const handleChangeText = async (event) => {
+    await setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+
+    await console.log(form);
   };
 
   return (
@@ -36,37 +56,37 @@ function AddProductForm(props) {
         <Form>
           <Form.Group as={Row} className="mb-3">
             <Col>
-              <Form.Control type="text" placeholder="Product code" />
+              <Form.Control type="text" placeholder="Product code" name="code" onChange={handleChangeText} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col>
-              <Form.Control type="text" placeholder="Name" />
+              <Form.Control type="text" placeholder="Name" name="name" onChange={handleChangeText}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col sm="3">
-              <Dropdown onSelect={handleSelect}>
+              <Dropdown onSelect={handleChangeText} name="category_id">
                 <Dropdown.Toggle variant="dark" id="account-type-dropdown">
                   {selectedAccountType || "Category"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item eventKey="Phone">Phone</Dropdown.Item>
-                  <Dropdown.Item eventKey="Tablet">Tablet</Dropdown.Item>
-                  <Dropdown.Item eventKey="Watch">Watch</Dropdown.Item>
-                  <Dropdown.Item eventKey="Laptop">Laptop</Dropdown.Item>
+                  <Dropdown.Item eventKey="1">Phone</Dropdown.Item>
+                  <Dropdown.Item eventKey="2">Tablet</Dropdown.Item>
+                  <Dropdown.Item eventKey="3">Laptop</Dropdown.Item>
+                  <Dropdown.Item eventKey="4">Watch</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
             <Col sm="3">
-              <Form.Control type="text" placeholder="Price" />
+              <Form.Control type="text" placeholder="Price" name="price" onChange={handleChangeText}/>
             </Col>
             <Col sm="3">
-              <Form.Control type="text" placeholder="Sale Percent" />
+              <Form.Control type="text" placeholder="Sale Percent" name="sale_percent" onChange={handleChangeText}/>
             </Col>
             <Col sm="3">
-              <Dropdown onSelect={() => {}}>
-                <Dropdown.Toggle variant="dark" id="account-type-dropdown">
+              <Dropdown onSelect={handleChangeText}>
+                <Dropdown.Toggle variant="dark" id="account-type-dropdown" name="color" onChange={handleChangeText}>
                   {selectedAccountType || "Color"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
@@ -81,15 +101,15 @@ function AddProductForm(props) {
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col sm="5">
-              <Form.Control type="text" placeholder="Manufacturer" />
+              <Form.Control type="text" placeholder="Manufacturer" name="manufacturer" onChange={handleChangeText}/>
             </Col>
             <Col sm="7">
-              <Form.Control type="file" placeholder="Description Html" />
+              <Form.Control type="file" placeholder="Description Html" name="html" onChange={handleChangeText} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col>
-              <Form.Control type="text" placeholder="Image" />
+              <Form.Control type="text" placeholder="Image" name="image" onChange={handleChangeText}/>
             </Col>
           </Form.Group>
           <Form.Group>
