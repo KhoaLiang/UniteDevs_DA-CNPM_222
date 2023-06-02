@@ -28,31 +28,31 @@ function Left() {
             <div class="manage-item">
 
             <a href='/adm_man_user'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '1' ? 'manage-employee' : ''}`}>
+                <div className={`edit-item ${localStorage.getItem('tag') === '1' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "1");}}>
                 <FontAwesomeIcon icon={faUser} class="icon-1"></FontAwesomeIcon>
                 Quản lý thành viên
                 </div>
             </a>
-            <a href='/adm_man_user'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '2' ? 'manage-employee' : ''}`}>
+            <a href='/adm_man_product'>
+                <div className={`edit-item ${localStorage.getItem('tag') === '2' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "2");}}>
                 <FontAwesomeIcon icon={faBars} class="icon-1"></FontAwesomeIcon>
                     Sản phẩm
                 </div>
             </a>
             <a href='/adm_man_user'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '3' ? 'manage-employee' : ''}`}>
+                <div className={`edit-item ${localStorage.getItem('tag') === '3' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "3");}}>
                 <FontAwesomeIcon icon={faBagShopping} class="icon-1"></FontAwesomeIcon>
                 Đơn hàng
                 </div>
             </a>
             <a href='/adm_man_user'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '4' ? 'manage-employee' : ''}`}>
+                <div className={`edit-item ${localStorage.getItem('tag') === '4' ? 'manage-employee' : ''}` + " rounded hover" } onClick={()=>{localStorage.setItem("tag", "4");}}>
                 <FontAwesomeIcon icon={faChartLine} class="icon-1"></FontAwesomeIcon>
                 Thống kê
                 </div>
             </a>
             <a href='/adm_man_emp'>
-                <div className={`edit-item ${localStorage.getItem('tag') === '5' ? 'manage-employee' : ''}`}>
+                <div className={`edit-item ${localStorage.getItem('tag') === '5' ? 'manage-employee' : ''}` + " rounded" } onClick={()=>{localStorage.setItem("tag", "5");}}>
                 <FontAwesomeIcon icon={faUsers} class="icon-1"></FontAwesomeIcon>
                 Quản lý nhân viên
                 </div>

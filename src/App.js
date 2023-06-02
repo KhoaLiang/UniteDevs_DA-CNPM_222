@@ -30,7 +30,6 @@ import PrePaymentM from './Component/khoa/PrePaymentM';
 
 import Manage_employee from './Component/vien/Manage_employee';
 import Manage_user from './Component/vien/Manage_user';
-
 import Showcase from './Component/Showcase';
 
 import ProductDetailC from './Component/Product/Product-detail-copy';
@@ -40,6 +39,8 @@ import PayWCard from './Component/Payment/PayWCard';
 import Thankyou from './Component/Payment/thankYou';
 import PayWMomo from './Component/Payment/PayWMomo';
 import Contact from './Component/contact/contact';
+import ShowProduct from './Component/quang/showProduct';
+
 export const AddContext = createContext();
 // export const AddContext = createContext();
 // export let phone = []
@@ -109,49 +110,51 @@ function onRemove(product) {
 
     return (
       <div>
-      <AddContext.Provider value={{cartItems, TotalAmount, setTotalAmount}}>
-         <Routes>
-        <Route exact path="/"  element={<HomePage/>}/>
-        <Route path="/login"  element={<Login/>}/>
-        <Route path="/forgotpass"  element={<ForgotPassword/>}/>
-        <Route path="/order"  element={<Order/>}/>
-        <Route path="/inforuser"  element={<InforUser/>}/>
-        <Route path="/editinfor"  element={<EditInfor/>}/>
-        <Route path="/changepass"  element={<ChangePassword/>}/>
-        <Route path="/addtocart"  element={<AddItemToCart/>}/>
-        <Route path="/confirm"  element={<Confirmation/>}/>
-        <Route path="/signup"  element={<Signup/>}/>
-        <Route path="/feedback"  element={<Feedback/>}/>
-        <Route path="/orderman"  element={<OrderMan/>}/>
-        <Route path="/ordertrack"  element={<OrderTrack/>}/>
-        
-        <Route path="/prepaymentb"  element={<PrePaymentB/>}/>
-        <Route path="/prepaymentm"  element={<PrePaymentM/>}/>
-        <Route path="/adm_man_emp"  element={<Manage_employee/>}/>
-        <Route path="/adm_man_user"  element={<Manage_user/>}/>
-        <Route path="/cellphones"  element={<Showcase phone={phone}/>}/>
-        {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
-        <Route path="/laptop"  element={<Showcase phone={laptop}/>}/>
-        <Route path="/product/:id"  element={<ProductDetailC onAdd={onAdd}/>}/>
-        <Route path="/watch"  element={<Showcase phone={watch}/>}/>
-        {/* <Route path="/watch/:id"  element={<ProductDetail phone={watch}/>}/> */}
-        <Route path="/ipad"  element={<Showcase phone={ipad}/>}/>
-        {/* <Route path="/ipad/:id"  element={<ProductDetail phone={ipad}/>}/> */}
+        <AddContext.Provider value={{ cartItems, TotalAmount, setTotalAmount }}>
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgotpass" element={<ForgotPassword />} />
+            <Route path="/order" element={<Order />} />
+            <Route path="/inforuser" element={<InforUser />} />
+            <Route path="/editinfor" element={<EditInfor />} />
+            <Route path="/changepass" element={<ChangePassword />} />
+            <Route path="/addtocart" element={<AddItemToCart />} />
+            <Route path="/confirm" element={<Confirmation />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/feedback" element={<Feedback />} />
+            <Route path="/orderman" element={<OrderMan />} />
+            <Route path="/ordertrack" element={<OrderTrack />} />
 
-        
-        <Route path="/cart-pro" element={<CartPro onRemove={onRemove}/>}/>
+            <Route path="/prepaymentb" element={<PrePaymentB />} />
+            <Route path="/prepaymentm" element={<PrePaymentM />} />
+            <Route path="/adm_man_emp" element={<Manage_employee />} />
+            <Route path="/adm_man_user" element={<Manage_user />} />
+            <Route path="/cellphones" element={<Showcase phone={phone} />} />
+            {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
+            <Route path="/laptop" element={<Showcase phone={laptop} />} />
+            <Route
+              path="/product/:id"
+              element={<ProductDetailC onAdd={onAdd} />}
+            />
+            <Route path="/watch" element={<Showcase phone={watch} />} />
+            {/* <Route path="/watch/:id"  element={<ProductDetail phone={watch}/>}/> */}
+            <Route path="/ipad" element={<Showcase phone={ipad} />} />
+            {/* <Route path="/ipad/:id"  element={<ProductDetail phone={ipad}/>}/> */}
 
-        {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}
-        {/*Payment section  */}
-        <Route path="/pay-with-card"  element={<PayWCard/>}/>
-        <Route path="/pay-with-momo"  element={<PayWMomo/>}/>
-        <Route path="/thank-you"  element={<Thankyou/>}/>
-        <Route path="/contact"  element={<Contact/>}/>
+            <Route path="/cart-pro" element={<CartPro onRemove={onRemove} />} />
+            <Route path="/adm_man_product" element={<ShowProduct />} />
 
-        <Route path="*"  element={<ErrorPage/>}/>
-         </Routes>
+            {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}
+            {/*Payment section  */}
+            <Route path="/pay-with-card" element={<PayWCard />} />
+            <Route path="/pay-with-momo" element={<PayWMomo />} />
+            <Route path="/thank-you" element={<Thankyou />} />
+            <Route path="/contact" element={<Contact />} />
 
-      </AddContext.Provider>
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </AddContext.Provider>
       </div>
     );
   

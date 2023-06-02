@@ -37,7 +37,7 @@ function EditInfor() {
       e.preventDefault()
       const FormData={...data}
       editProfile(localStorage.getItem("token"),FormData).then((res)=>{
-        message.success("cập nhật thông tin người dùng thành công")
+        message.success("Update user information successfully")
       }).catch((error)=>{
         console.log(error)
     })
@@ -46,18 +46,18 @@ function EditInfor() {
         <React.Fragment>
             <div className="EditInfor">
                 <LayoutUser>
-                    <h3 className='pb-3  pt-3 border-bottom pb-4'>Chỉnh sửa thông tin</h3>
+                    <h3 className='pb-3  pt-3 border-bottom pb-4'>Edit information</h3>
                     <form onSubmit={e=>handleSubmit(e)}>                        
                         <table className='mt-4'>
                             <tbody>
                                 <tr className='mt-3'>
-                                    <td className='text-end text-secondary'>Tên</td>
+                                    <td className='text-end text-secondary'>Name</td>
                                     <td className='ps-4'>
                                         <input type="text" onChange={e=>handle(e)} value={data.name} id='name' className="form-control"  />
                                     </td>
                                 </tr>
                                 <tr className='pb-3'>
-                                    <td className='text-end text-secondary'>Số điện thoại</td>
+                                    <td className='text-end text-secondary'>Phone</td>
                                     <td className='ps-4'>
                                         <input type="text"onChange={e=>handle(e)} value={data.phone} id='phone' className="form-control"  />
                                     </td>
@@ -69,7 +69,7 @@ function EditInfor() {
                                     </td>
                                 </tr>
                                 <tr className='pb-3'>
-                                    <td className='text-end text-secondary'>Địa chỉ</td>
+                                    <td className='text-end text-secondary'>Address</td>
                                     <td className='ps-4'>
                                         <input type="text" onChange={e=>handle(e)} value={data.address||''} id='address' className="form-control"  />
                                     </td>

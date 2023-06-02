@@ -5,7 +5,7 @@ import {faEdit} from '@fortawesome/free-solid-svg-icons'
 import {faSignOut} from '@fortawesome/free-solid-svg-icons'
 import EditForm from './EditForm'
 import LogOut from './LogOut'
-function Headerr() {
+function HeaderAdmin() {
   const [showEditInfo, setShowEditInfo] =  useState(false);
   const [showLogOut, setShowLogOut] = useState(false);
   const showEditForm = async () => {
@@ -36,4 +36,4 @@ function Headerr() {
   );
 }
 
-export default Headerr;
+export default HeaderAdmin;
