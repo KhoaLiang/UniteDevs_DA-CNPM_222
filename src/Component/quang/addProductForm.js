@@ -66,7 +66,7 @@ function AddProductForm(props) {
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col sm="3">
-              <Dropdown onSelect={handleChangeText} name="category_id">
+              <Dropdown onSelect={handleChangeText} onSelect={handleSelect} name="category_id">
                 <Dropdown.Toggle variant="dark" id="account-type-dropdown">
                   {selectedAccountType || "Category"}
                 </Dropdown.Toggle>

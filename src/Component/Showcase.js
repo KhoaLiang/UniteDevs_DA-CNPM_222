@@ -50,7 +50,7 @@ const Phones = (props) => {
         <Header />
         <h1 className='text-center m-1'>Display of products</h1>
         <div>
-        
+      
           <div class="row justify-content-center align-items-center g-2">
             <div class="col-4">
             {props.phone.map((phone, key) => (

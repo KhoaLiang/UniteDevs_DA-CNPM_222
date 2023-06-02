@@ -39,6 +39,7 @@ import PayWCard from "./Component/Payment/PayWCard";
 import Thankyou from "./Component/Payment/thankYou";
 import PayWMomo from "./Component/Payment/PayWMomo";
 import Contact from "./Component/contact/contact";
+import ShowProduct from './Component/quang/showProduct'
 export const AddContext = createContext();
 // export const AddContext = createContext();
 // export let phone = []
@@ -141,6 +142,7 @@ function App() {
           <Route path="/prepaymentm" element={<PrePaymentM />} />
           <Route path="/adm_man_emp" element={<Manage_employee />} />
           <Route path="/adm_man_user" element={<Manage_user />} />
+          <Route path="/adm_man_product" element={<ShowProduct />} />
           <Route path="/cellphones" element={<Showcase phone={phone} />} />
           {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
           <Route path="/laptop" element={<Showcase phone={laptop} />} />

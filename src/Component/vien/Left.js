@@ -30,19 +30,19 @@ function Left() {
             <a href='/adm_man_user'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '1' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "1");}}>
                 <FontAwesomeIcon icon={faUser} class="icon-1"></FontAwesomeIcon>
-                Quản lý thành viên
+                Customer Manager
                 </div>
             </a>
             <a href='/adm_man_product'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '2' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "2");}}>
                 <FontAwesomeIcon icon={faBars} class="icon-1"></FontAwesomeIcon>
-                    Sản phẩm
+                   Product Manager
                 </div>
             </a>
             <a href='/adm_man_user'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '3' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "3");}}>
                 <FontAwesomeIcon icon={faBagShopping} class="icon-1"></FontAwesomeIcon>
-                Đơn hàng
+                Order Manager
                 </div>
             </a>
             <a href='/adm_man_user'>
@@ -54,7 +54,7 @@ function Left() {
             <a href='/adm_man_emp'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '5' ? 'manage-employee' : ''}` + " rounded" } onClick={()=>{localStorage.setItem("tag", "5");}}>
                 <FontAwesomeIcon icon={faUsers} class="icon-1"></FontAwesomeIcon>
-                Quản lý nhân viên
+                Employee Manager
                 </div>
             </a>
             </div>
