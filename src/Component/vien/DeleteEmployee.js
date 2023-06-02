@@ -41,7 +41,7 @@ function DeleteEmployee({showDeleteForm,setShowDeleteForm,Id_emp,setData}) {
     <>
     {showDeleteForm && (
     <div className="background">
-        <div className='edit'>
+        <div className='edit1'>
         {user && (
           <h3>
             Bạn có chắc muốn xóa nhân viên {user.name} không?

@@ -25,7 +25,7 @@ function ShowWarning({setIsVisible,setShowWarning,showWarning,setShowForm}) {
         </h3>
         <span>
         </span>
-        <div class="edit-btn">
+        <div class="edit-btn gap-4">
             <button type="button" class="btn btn-success" onClick={handleConfirm}>Xác nhận</button>
             <button type="button" class="btn btn-danger" onClick={handleCancel}>Hủy bỏ</button>
         </div>

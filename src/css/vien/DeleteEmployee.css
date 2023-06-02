@@ -1,7 +1,7 @@
 .background{
     width:100vw;
     height:100vh;
-    top:0;
+    top: 20px;
     right:0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index:1001;
@@ -12,7 +12,7 @@
     justify-content: center;
 }
 
-.edit{
+.edit1{
     width:33vw;
     height:auto;
     background-color: #ffffff !important;
