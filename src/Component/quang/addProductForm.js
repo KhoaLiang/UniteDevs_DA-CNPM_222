@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./addProductForm.css";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,8 +7,10 @@ import { Dropdown } from "react-bootstrap";
 import "react-datepicker/dist/react-datepicker.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import {message} from 'antd'
 
 import { getAllCategory } from "../../api/userApi";
+import {addProduct} from "../../api/adminApi"
 function AddProductForm(props) {
   const [form, setForm] = useState({
     code: '',
@@ -17,7 +19,7 @@ function AddProductForm(props) {
     color: '',
     sale_percent: '',
     price: '',
-    manualfacturer: '',
+    manufacturer: '',
     html: '',
     image: '',
     key: [],
@@ -28,20 +30,55 @@ function AddProductForm(props) {
     setShowWarning(true);
   };
 
-  const [selectedAccountType, setSelectedAccountType] = useState(null);
-
-  const handleSelect = (eventKey) => {
-    setSelectedAccountType(eventKey);
-  };
-  const handleChangeText = async (event) => {
-    await setForm({
+  const [category, setCategory] = useState(null);
+  const [color, setColor] = useState(null);
+  const [state, setState] = useState(null);
+  const handleCategory = (eventKey) => {
+    setCategory(eventKey);
+    let val = 4;
+    if (eventKey === "Phone")
+      val = 1;
+    else if (eventKey === "Laptop") val = 2;
+    else if (eventKey === "Tablet") val = 3;
+    setForm({
       ...form,
-      [event.target.name]: event.target.value,
+      ["category_id"]: val
+    });    
+  };
+  const handleColor = (eventKey) => {
+    setColor(eventKey);
+    setForm({
+      ...form,
+      ["color"]: eventKey
     });
-
-    await console.log(form);
+  }
+  const handleChangeText = (event) => {
+    if (event.target.name === "html"){
+      setForm({
+        ...form,
+        [event.target.name]: event.target.files[0]});
+    }
+    else{
+      setForm({
+        ...form,
+        [event.target.name]: event.target.value,
+    });
+  }
   };
 
+  useEffect(()=>{
+    if (state !== null){
+      (async()=>{
+        console.log(form);
+        let rs = await addProduct(form, localStorage.getItem("token"));
+        return rs;
+      })().then(()=>{
+        message.error("Add product successfully!")
+      }).catch((err)=>{
+        message.error("Add product failed!")
+      });
+    }
+  }, [state]);
   return (
     <div className="background">
       <div className="form">
@@ -50,7 +87,7 @@ function AddProductForm(props) {
           <FontAwesomeIcon
             className="icon"
             icon={faX}
-            onClick={() => props.setShowForm(false)}
+            onClick={() => {props.setShowForm(false); setState(null);}}
           ></FontAwesomeIcon>
         </div>
         <Form>
@@ -66,15 +103,15 @@ function AddProductForm(props) {
           </Form.Group>
           <Form.Group as={Row} className="mb-3">
             <Col sm="3">
-              <Dropdown onSelect={handleChangeText} onSelect={handleSelect} name="category_id">
+              <Dropdown onSelect={handleCategory} name="category_id">
                 <Dropdown.Toggle variant="dark" id="account-type-dropdown">
-                  {selectedAccountType || "Category"}
+                  {category || "Category"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item eventKey="1">Phone</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Tablet</Dropdown.Item>
-                  <Dropdown.Item eventKey="3">Laptop</Dropdown.Item>
-                  <Dropdown.Item eventKey="4">Watch</Dropdown.Item>
+                  <Dropdown.Item eventKey="Phone">Phone</Dropdown.Item>
+                  <Dropdown.Item eventKey="Tablet">Tablet</Dropdown.Item>
+                  <Dropdown.Item eventKey="Laptop">Laptop</Dropdown.Item>
+                  <Dropdown.Item eventKey="Watch">Watch</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Col>
@@ -85,9 +122,9 @@ function AddProductForm(props) {
               <Form.Control type="text" placeholder="Sale Percent" name="sale_percent" onChange={handleChangeText}/>
             </Col>
             <Col sm="3">
-              <Dropdown onSelect={handleChangeText}>
-                <Dropdown.Toggle variant="dark" id="account-type-dropdown" name="color" onChange={handleChangeText}>
-                  {selectedAccountType || "Color"}
+              <Dropdown onSelect={handleColor}>
+                <Dropdown.Toggle variant="dark" id="account-type-dropdown" name="color">
+                  {color || "Color"}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item eventKey="Black">Black</Dropdown.Item>
@@ -115,7 +152,8 @@ function AddProductForm(props) {
           <Form.Group>
             <button
               class="btn btn-success"
-              onClick={() => props.setShowForm(false)}
+              type="button"
+              onClick={(event)=>{setState(!state)}}
             >
               Save
             </button>
@@ -127,3 +165,4 @@ function AddProductForm(props) {
 }
 
 export default AddProductForm;
+//props.setShowForm(false);

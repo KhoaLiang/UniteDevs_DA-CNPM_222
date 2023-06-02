@@ -50,3 +50,6 @@
     cursor: pointer;
     opacity: 0.8;
 }
+.container > div{
+    width: 100%;
+}
