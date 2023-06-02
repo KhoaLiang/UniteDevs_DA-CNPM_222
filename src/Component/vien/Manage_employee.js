@@ -75,6 +75,7 @@ function Manage_employee() {
   for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
+  localStorage.setItem('tag', 5);
   return (
     <div>
       <Headerr />

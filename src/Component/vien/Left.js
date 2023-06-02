@@ -8,6 +8,7 @@ import {faBagShopping} from '@fortawesome/free-solid-svg-icons'
 import {faChartLine} from '@fortawesome/free-solid-svg-icons'
 import {faUsers} from '@fortawesome/free-solid-svg-icons'
 function Left() {
+
   return (
     <div>
         <div style={{backgroundColor: 'rgba(243, 244, 246, 1)',height:'100%', position:'relative'}}>
@@ -25,32 +26,33 @@ function Left() {
             </div>
             </div>     
             <div class="manage-item">
+
             <a href='/adm_man_user'>
-                <div class="edit-item">
+                <div className={`edit-item ${localStorage.getItem('tag') === '1' ? 'manage-employee' : ''}`}>
                 <FontAwesomeIcon icon={faUser} class="icon-1"></FontAwesomeIcon>
                 Quản lý thành viên
                 </div>
             </a>
             <a href='/adm_man_user'>
-                <div class="edit-item">
+                <div className={`edit-item ${localStorage.getItem('tag') === '2' ? 'manage-employee' : ''}`}>
                 <FontAwesomeIcon icon={faBars} class="icon-1"></FontAwesomeIcon>
                     Sản phẩm
                 </div>
             </a>
             <a href='/adm_man_user'>
-                <div class="edit-item">
+                <div className={`edit-item ${localStorage.getItem('tag') === '3' ? 'manage-employee' : ''}`}>
                 <FontAwesomeIcon icon={faBagShopping} class="icon-1"></FontAwesomeIcon>
                 Đơn hàng
                 </div>
             </a>
             <a href='/adm_man_user'>
-                <div class="edit-item">
+                <div className={`edit-item ${localStorage.getItem('tag') === '4' ? 'manage-employee' : ''}`}>
                 <FontAwesomeIcon icon={faChartLine} class="icon-1"></FontAwesomeIcon>
                 Thống kê
                 </div>
             </a>
             <a href='/adm_man_emp'>
-                <div class="edit-item manage-employee">
+                <div className={`edit-item ${localStorage.getItem('tag') === '5' ? 'manage-employee' : ''}`}>
                 <FontAwesomeIcon icon={faUsers} class="icon-1"></FontAwesomeIcon>
                 Quản lý nhân viên
                 </div>

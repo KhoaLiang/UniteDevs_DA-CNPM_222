@@ -65,6 +65,7 @@ function Manage_user() {
   for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
+  localStorage.setItem('tag', 1);
   return (
     <div>
       <Headerr />
