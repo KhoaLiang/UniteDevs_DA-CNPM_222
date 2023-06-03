@@ -4,7 +4,6 @@ import Header from '../dat/Header';
 class OrderMan extends Component {
   render() {
     return (
-      
       <div>
         <Header/>
         <h2 className='text-center'>Order Management page</h2>

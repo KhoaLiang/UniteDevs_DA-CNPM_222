@@ -52,7 +52,6 @@ function App() {
   const [watch, setWatch] = useState([]);
   const [ipad, setIpad] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [TotalAmount, setTotalAmount] = useState([]);
   useEffect(() => {
     (async () => {
       getProductByCategory("CellPhone")
@@ -89,40 +88,58 @@ function App() {
       // let ipad1 = await getProductByCategory("Tablet");
       // setIpad(ipad1.data);
     })();
-  }, [cartItems]);
+  }, []);
 
   //the cart
 
   function onAdd(product) {
-    const exist = cartItems.find((x) => x.id === product.id);
-
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === product.id ? { ...exist, quantity: exist.quantity + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    let cart = localStorage.getItem("cart");
+    if (!cart){
+      cart = [{id: product.id, code: product.code, category_id: product.category_id, name: product.name,
+              color: product.color, sale_percent: product.sale_percent, price: product.price, manufacturer: product.manufacturer,
+              image: product.image, quantity: 1}];
+      setCartItems(cart);
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    else{
+      cart = JSON.parse(cart);
+      const exist = cart.find((x) => x.id === product.id);
+      if (exist) {
+        cart.map((x) =>{
+          if (x.id === product.id) x.quantity++;
+        })
+      } else {
+        cart = [...cart, { ...product, quantity: 1 }];
+      }
+      setCartItems(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
     }
   }
-
+  function onDecrease(product){
+    let cart = localStorage.getItem("cart");
+    cart = JSON.parse(cart);
+    cart.map((x) =>{
+      if (x.id === product.id) x.quantity--;
+    })
+    setCartItems(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
   function onRemove(product) {
-    // for(var i=0;i<cartItems.length;i++){
-    //   if(cartItems[i].name ===product.name){
-    //     setCartItems(cartItems.splice(i,1));
-    //     console.log(cartItems);
-    //   }
-    // }
-    const newCartItems = cartItems.filter((cartItem) => {
-      return cartItem.id !== product.id;
-    });
-    setCartItems(newCartItems);
+    let cart = localStorage.getItem('cart');
+    if (cart){
+      cart = JSON.parse(cart);
+      cart = cart.filter((cartItem) => {
+        return cartItem.id !== product.id;
+      });
+      setCartItems(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    
   }
 
   return (
     <div>
-      <AddContext.Provider value={{ cartItems, TotalAmount, setTotalAmount }}>
+      <AddContext.Provider>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
@@ -155,7 +172,7 @@ function App() {
           <Route path="/ipad" element={<Showcase phone={ipad} />} />
           {/* <Route path="/ipad/:id"  element={<ProductDetail phone={ipad}/>}/> */}
 
-          <Route path="/cart-pro" element={<CartPro onRemove={onRemove} />} />
+          <Route path="/cart-pro" element={<CartPro onRemove={onRemove} cartItems={cartItems} onAdd={onAdd} onDecrease={onDecrease}/>} />
 
           {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}
           {/*Payment section  */}

@@ -77,7 +77,8 @@ function Header() {
                         </div>                   
                 </div>
                 <div className="col-1">
-                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}></i>
+                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}>1</i>
+                
                 </div>
             </div>
             <div className="row  mt-3 justify-content-center category">

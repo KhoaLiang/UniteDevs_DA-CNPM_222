@@ -11,7 +11,7 @@ function ViewProduct(props){
         <p className="not-sale">{props.price.toLocaleString()}</p>
         <div className="foot">
           <button>Xem đánh giá</button>
-          <button>Edit</button>
+          <button onClick={props.setEditForm()}>Edit</button>
         </div>
       </div>
     );

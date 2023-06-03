@@ -37,7 +37,7 @@ import { useEffect, useState } from 'react';
 // }
 
 // export default Phones;
-const Cart = ({onRemove}) => {
+const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
     // useEffect(() => {
     //   getProductByCategory('CellPhone').then((resolvedObject) => {
     //     const dataArray = resolvedObject.data;
@@ -45,10 +45,9 @@ const Cart = ({onRemove}) => {
     //     console.log(dataArray);
     //   });
     // }, []);
-    const {cartItems, TotalAmount, setTotalAmount}= useContext(AddContext);
+    let [TotalAmount, setTotalAmount]= useState(0);
+    cartItems= JSON.parse(localStorage.getItem('cart'));
     const navigate = useNavigate();
-    
-    
       const [paymentMethod, setPaymentMethod] = useState('');
     
       const handlePaymentMethodChange = (event) => {
@@ -93,23 +92,19 @@ const Cart = ({onRemove}) => {
         }
       };
     
-    let totalAmount = 0;
-    // for (const item of cartItems) {
-    //   totalAmount += item.quantity * item.price;
-    // }
+    
     useEffect(()=>{
-      
-        for (const item of cartItems) {
-          totalAmount += item.quantity * item.price;
-        }
-        setTotalAmount(totalAmount)
-    },[])
+      let totalAmount = 0;
+      for (const item of cartItems) {
+        totalAmount += item.quantity * item.price*(100-item.sale_percent)/100;
+      }
+        setTotalAmount(totalAmount.toLocaleString());
+    },[cartItems])
     return (
       <>
         <Header />
         <h1 className='text-center'>This is the cart</h1>
         {(cartItems.length ===0) ?  <h1 className='text-center'>Choose something to buy and comback :D</h1> 
-        
         
         :<div>
         {/* <div class="row justify-content-center align-items-center g-2">
@@ -133,7 +128,7 @@ const Cart = ({onRemove}) => {
            
            {/* Single item */}
            {cartItems.map((phone, key) => (
-          <Product key={key} phone={phone} onRemove={onRemove}/>
+          <Product key={key} phone={phone} onRemove={onRemove} onAdd={onAdd} onDecrease={onDecrease}/>
         ))}
 
           <hr class="my-4" />
@@ -223,20 +218,20 @@ const Cart = ({onRemove}) => {
 
 
 {/* Address */}
-<div class="form-outline">
+    {/* <div class="form-outline">
   
-        <input
-          type="text"
-          id="form7Example1"
-          className="form-control"
-          value={firstName}
-          onChange={handleFirstNameChange}
-        />
-        <label className="form-label" htmlFor="form7Example1">
-          First name
-        </label>
-      </div>
-      <div className="form-outline">
+      <input
+        type="text"
+        id="form7Example1"
+        className="form-control"
+        value={firstName}
+        onChange={handleFirstNameChange}
+      />
+      <label className="form-label" htmlFor="form7Example1">
+        First name
+      </label>
+    </div> */}
+      {/* <div className="form-outline">
         <input
           type="text"
           id="form7Example2"
@@ -247,12 +242,12 @@ const Cart = ({onRemove}) => {
         <label className="form-label" htmlFor="form7Example2">
           Last name
         </label>
-      </div>
-              <div class="form-outline mb-4">
+      </div> */}
+          {/* <div class="form-outline mb-4">
             <input type="text" id="form7Example4" class="form-control" />
             <label class="form-label" for="form7Example4">Address</label>
-          </div>
-          <div className="form-outline mb-4">
+          </div> */}
+      {/* <div className="form-outline mb-4">
         <input
           type="text"
           id="form7Example6"
@@ -263,18 +258,14 @@ const Cart = ({onRemove}) => {
         <label className="form-label" htmlFor="form7Example6">
           Phone
         </label>
-      </div>
-          <div class="form-outline mb-4">
+      </div> */}
+          {/* <div class="form-outline mb-4">
             <textarea class="form-control" id="form7Example7" rows="4"></textarea>
             <label class="form-label" for="form7Example7">Additional information</label>
-          </div>
+          </div> */}
 
               {/* Check out button */}
-              <button
-        type="button"
-        className="btn btn-primary btn-lg btn-block"
-        onClick={handleCheckout}
-      >
+      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() => !localStorage.getItem('name')? navigate('/login'):handleCheckout}>
         Go to checkout
       </button>
         </div>

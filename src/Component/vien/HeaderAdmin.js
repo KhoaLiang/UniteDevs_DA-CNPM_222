@@ -20,7 +20,7 @@ function HeaderAdmin() {
   return (
     <div style={{padding: '0px',minWidth: '100vw'}}>
         <div style={{ backgroundColor: '#eb5b69',color:'#fff',display:'flex',justifyContent:'space-between', textAlign:'center', alignItems:'center',padding:'5px 20px'}}>
-          <h4 onClick={()=>{navigate('/')}}>Easy Electronic</h4>
+          <h4 onClick={()=>{navigate('/')}} style={{cursor: "pointer"}}>Easy Electronic</h4>
         
           <div class="image_notify1">
             <div class="editinfo1">

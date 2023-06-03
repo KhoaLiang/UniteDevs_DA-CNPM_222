@@ -60,7 +60,10 @@ function ShowProduct() {
   };
   const [state, setState] = useState(false);
   const [data, setData] = useState([]);
-
+  const [showEditForm, setShowEditForm] = useState(false);
+  let setEditForm = () => {
+    setShowEditForm(true);
+  }; 
   useEffect(()=>{
     (async () =>{
       let allProduct = await getAllProduct();
@@ -68,13 +71,14 @@ function ShowProduct() {
     })();
   }, [state]);
   let product = data.map((element) =>
-    <ViewProduct price={element.price} image={element.image} sale_percent={element.sale_percent} name={element.name} salep/>
+    <ViewProduct price={element.price} image={element.image} sale_percent={element.sale_percent} name={element.name} setEditForm={setEditForm}/>
   );
-
   let handleSelectCate = async (cate) => {
     let allProduct = await getProductByCategory(cate);
     setData(allProduct.data);
   }
+
+ 
   return (
     <div style={{ padding: "0px" }}>
       <HeaderAdmin/>
@@ -124,6 +128,7 @@ function ShowProduct() {
                   Thêm sản phẩm
                 </button>
                 {showForm && <AddProductForm setShowForm={setShowForm} />}
+                {/* {showEditForm && <EditProductForm setShowForm={setShowForm} />} */}
               </div>
             </div>
             <div className="container1">

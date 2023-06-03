@@ -76,7 +76,7 @@ function EditInfor() {
                                 </tr>
                             </tbody>
                         </table>
-                        <button className="btn btn-primary rounded-pill w-75 my-4">cập nhật</button>
+                        <button className="btn btn-primary rounded-pill w-75 my-4">Update</button>
                     </form>
                 </LayoutUser>                      
             </div>               
