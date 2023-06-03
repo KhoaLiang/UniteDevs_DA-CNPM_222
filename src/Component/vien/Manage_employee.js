@@ -76,6 +76,7 @@ function Manage_employee() {
     pageNumbers.push(i);
   }
   localStorage.setItem('tag', 5);
+  if (Number(localStorage.getItem("isAdmin"))===1)
   return (
     <div>
       <HeaderAdmin />
@@ -178,7 +179,12 @@ function Manage_employee() {
         </Row>
       </Container>
     </div>
-  );
+  )  
+  else{
+    return(
+      <h1>you are not authorized to access this site.</h1>
+    )
+  };
 }
 
 export default Manage_employee;
