@@ -1,11 +1,9 @@
 import React from 'react'
 import Header from '../dat/Header'
 import Footer from '../dat/Footer'
-import { AddContext } from '../../App';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
 export default function Thankyou() {
-    const {cartItems,TotalAmount}= useContext(AddContext);
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
     const navigate=useNavigate();
   return (
     

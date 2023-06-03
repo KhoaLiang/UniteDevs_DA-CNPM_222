@@ -136,10 +136,7 @@ function App() {
   }
 
 
-  localStorage.setItem("numberItem",
-  cartItems.reduce(function(total, obj) {
-      return total + obj.quantity;
-  }, 0));
+  
 
 
 

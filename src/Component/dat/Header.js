@@ -3,9 +3,13 @@ import logo from '../../img/logo.jpg'
 import '../../css/Header.css';
 import { Fragment } from 'react';
 function Header() {
+    let cartItems = JSON.parse(localStorage.getItem('cart'));
 
-    console.log(localStorage.getItem("numberItem").length)
-
+    localStorage.setItem("numberItem",
+    cartItems.reduce(function(total, obj) {
+        return total + obj.quantity;
+    }, 0));
+    
     let navigate=useNavigate()
 
     const handleSignup=()=>{
@@ -79,7 +83,9 @@ function Header() {
                         </div>                   
                 </div>
                 <div className="col-1">
-                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}>{localStorage.getItem('numberItem')}</i>
+                    <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}} style={{position: "relative"}}>
+                    <span  className={"rounded"}style={{position: "absolute", right: "0px", bottom:"0", fontSize: "10px", backgroundColor: "red", padding: "3px 6px"}}>{localStorage.getItem('numberItem')}</span>
+                    </i>
                 
                 </div>
             </div>

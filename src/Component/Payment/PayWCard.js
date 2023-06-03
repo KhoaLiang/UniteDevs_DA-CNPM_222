@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from '../dat/Header'
 import Footer from '../dat/Footer'
-import { AddContext } from '../../App';
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
+import {addOrder} from '../../api/userApi'
+import {message} from 'antd'
+
 export default function PayWCard() {
   let TotalAmount =  localStorage.getItem('totalAmount');
     const navigate=useNavigate();
@@ -52,6 +53,20 @@ export default function PayWCard() {
     event.preventDefault();
     // Perform form submission logic
   };
+  const cartItems = JSON.parse(localStorage.getItem('cart'));
+
+  function addOrderUser(){
+    let form = {
+      voucher_id: 1,
+      payment_id: 1,
+      shipping_id: 1,
+      notice: "None",
+      sum_price: TotalAmount,
+      order_detail: cartItems.map((ele) => {return {product_id: ele.id, count: ele.quantity}})
+    }
+    localStorage.setItem('cart', JSON.stringify([]));
+    addOrder(localStorage.getItem('token'), form).then(() => {message.success("Order Successfully!")}).catch(() => {message.error("Order Failed!")});
+  }
   return (
     
     <>
@@ -134,7 +149,7 @@ export default function PayWCard() {
   }}>
     <a><i class="fas fa-angle-left me-2" ></i>Back to shopping</a>
   </h5>
-  <button type="button" className="btn btn-primary btn-block btn-lg" onClick={()=>{navigate(`/thank-you`)}} >Buy now</button>
+  <button type="button" className="btn btn-primary btn-block btn-lg" onClick={(event)=>{addOrderUser();  navigate(`/thank-you`)}}>Buy now</button>
 </div>
 
 
