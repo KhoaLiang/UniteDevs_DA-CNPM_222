@@ -17,6 +17,10 @@ function Header() {
     const handeLogout=()=>{
         localStorage.removeItem("name");
         localStorage.removeItem("token");
+        localStorage.removeItem("isAdmin");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("tag");
         navigate('/login')
     }
 
@@ -36,9 +40,10 @@ function Header() {
                         localStorage.getItem("name")?
                                 <Fragment>
                                     <div className="d-inline-block ps-lg-5 ps-sm-2 user"><i className="me-1 fa-solid fa-user"></i> {localStorage.getItem("name")}
-                                    <ul>
+                                    <ul className='ms-lg-5 ms-sm-2'>
                                         <li onClick={handeLogout}>Log Out</li>
                                         <li onClick={()=>{navigate('/inforuser')}}>My Account</li>
+                                        {localStorage.getItem("isAdmin")===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
                                     </ul>
                                     </div>
                                 </Fragment>:

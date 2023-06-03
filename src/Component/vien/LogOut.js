@@ -7,8 +7,12 @@ function LogOut({setShowLogOut, showLogOut}) {
     let navigate=useNavigate()
     const handleConfirm = () => {
         setShowLogOut(false);
-        localStorage.removeItem('name');
-        localStorage.removeItem('token');
+        localStorage.removeItem("name");
+        localStorage.removeItem("token");
+        localStorage.removeItem("isAdmin");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("userId");
+        localStorage.removeItem("tag");
         navigate('/')
     };
     const handleCancel = () => {
