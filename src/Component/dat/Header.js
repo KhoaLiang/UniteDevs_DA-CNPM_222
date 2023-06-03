@@ -5,6 +5,9 @@ import { Fragment, useState } from 'react';
 import {searchItem} from '../../api/userApi'
 function Header(props) {
     let cartItems = JSON.parse(localStorage.getItem('cart'));
+    if (cartItems === undefined) {
+        localStorage.setItem('cart', JSON.stringify([]));
+    }
     localStorage.setItem("numberItem",
     cartItems.reduce(function(total, obj) {
         return total + obj.quantity;
