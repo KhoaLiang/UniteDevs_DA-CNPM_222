@@ -6,6 +6,8 @@ import Header from '../dat/Header';
 import Footer from '../dat/Footer';
 import { getProductById } from '../../api/userApi';
 import { AddContext } from '../../App';
+import {message} from 'antd'
+
 import {
   MDBCard,
   MDBCardBody,
@@ -41,7 +43,7 @@ import {
         <p className="card-text">Color style:  {ProWId.color}</p>
         <p className="card-text">{(ProWId.price * (100-ProWId.sale_percent)/100).toLocaleString()} VND</p>
         <p className="card-text text-decoration-line-through text-danger">{(ProWId.price*1).toLocaleString()} VND</p>
-        <div class="btn btn-primary" onClick={()=>{onAdd(ProWId)}}>Add to cart</div>
+        <div class="btn btn-primary" onClick={()=>{message.success("Add product in cart success!");onAdd(ProWId)}}>Add to cart</div>
       </div>
     </div>
     <div className="col-6">

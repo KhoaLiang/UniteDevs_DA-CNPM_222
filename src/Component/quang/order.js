@@ -131,7 +131,6 @@ function ShowOrder(props) {
     }
   }, [detailOrder]);
   
-  console.log(data);
   return (
     <div style={{ padding: "0px" }}>
       <HeaderAdmin/>
