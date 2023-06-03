@@ -167,14 +167,10 @@ function App() {
           <Route path="/adm_man_emp" element={<Manage_employee />} />
           <Route path="/adm_man_user" element={<Manage_user />} />
           <Route path="/adm_man_product" element={<ShowProduct />} />
-<<<<<<< Updated upstream
           <Route path="/cellphones" element={<Showcase phone={phone}  setPhone={setPhone}/>} />
-=======
           <Route path="/adm_man_order" element={<ShowOrder />} />
           <Route path="/adm_man_deliver" element={<ShowDeliver />} />
           <Route path="/adm_man_delivered" element={<ShowDelivered />} />
-          <Route path="/cellphones" element={<Showcase phone={phone} />} />
->>>>>>> Stashed changes
           {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
           <Route path="/laptop" element={<Showcase phone={laptop} setPhone={setLaptop}/>} />
           <Route path="/product/:id" element={<ProductDetailC onAdd={onAdd}/>}/>
