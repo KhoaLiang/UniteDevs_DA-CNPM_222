@@ -4,6 +4,8 @@ import '../../css/Header.css';
 import { Fragment } from 'react';
 function Header() {
 
+    console.log(localStorage.getItem("numberItem").length)
+
     let navigate=useNavigate()
 
     const handleSignup=()=>{
@@ -40,7 +42,7 @@ function Header() {
                         localStorage.getItem("name")?
                                 <Fragment>
                                     <div className="d-inline-block ps-lg-5 ps-sm-2 user"><i className="me-1 fa-solid fa-user"></i> {localStorage.getItem("name")}
-                                    <ul className='ms-lg-5 ms-sm-2' style={{width: "120px", left: "20px"}}>
+                                    <ul className='ms-lg-5 ms-sm-2'>
                                         <li onClick={handeLogout}>Log Out</li>
                                         <li onClick={()=>{navigate('/inforuser')}}>My Account</li>
                                         {Number(localStorage.getItem("isAdmin"))===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
@@ -77,7 +79,7 @@ function Header() {
                         </div>                   
                 </div>
                 <div className="col-1">
-                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}></i>
+                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}>{localStorage.getItem('numberItem')}</i>
                 
                 </div>
             </div>

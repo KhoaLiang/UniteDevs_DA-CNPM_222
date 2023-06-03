@@ -60,33 +60,31 @@ function App() {
         })
         .catch((error) => {
         });
-      // let phone1 = await getProductByCategory("CellPhone");
-      // setPhone(phone1.data);
+
       getProductByCategory("Laptop")
         .then((res) => {
           setLaptop(res.data);
         })
         .catch((error) => {
         });
-      // let laptop1 = await getProductByCategory("Laptop");
-      // setLaptop(laptop1.data);
-
+      
       getProductByCategory("watch")
         .then((res) => {
           setWatch(res.data);
         })
         .catch((error) => {
         });
-      // let watch1 = await getProductByCategory("watch");
-      // setWatch(watch1.data);
+      
       getProductByCategory("Tablet")
         .then((res) => {
           setIpad(res.data);
         })
         .catch((error) => {
         });
-      // let ipad1 = await getProductByCategory("Tablet");
-      // setIpad(ipad1.data);
+
+    
+    
+     
     })();
   }, []);
 
@@ -136,6 +134,15 @@ function App() {
     }
     
   }
+
+
+  localStorage.setItem("numberItem",
+  cartItems.reduce(function(total, obj) {
+      return total + obj.quantity;
+  }, 0));
+
+
+
   return (
     <div>
       <AddContext.Provider>
@@ -188,3 +195,4 @@ function App() {
 }
 
 export default App;
+
