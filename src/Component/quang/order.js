@@ -108,7 +108,7 @@ function ShowOrder(props) {
                 const updatedItem = {
                   ...item,
                   product_name: productInfo.data.name,
-                  product_price: productInfo.data.price
+                  product_price: productInfo.data.price* (100-productInfo.data.sale_percent)/100
                 };
                 const index = order.findIndex((detail) => detail.product_id === item.product_id);
                 if (index !== -1) {
