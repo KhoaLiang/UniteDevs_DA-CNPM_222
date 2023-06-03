@@ -75,6 +75,7 @@ function ShowProduct() {
     let allProduct = await getProductByCategory(cate);
     setData(allProduct.data);
   }
+  if (Number(localStorage.getItem("isAdmin"))===1)
   return (
     <div style={{ padding: "0px" }}>
       <HeaderAdmin/>
@@ -134,7 +135,12 @@ function ShowProduct() {
         </Row>
       </Container>
     </div>
-  );
+  )
+  else{
+    return(
+      <h1>you are not authorized to access this site.</h1>
+    )
+  };
 }
 
 export default ShowProduct;

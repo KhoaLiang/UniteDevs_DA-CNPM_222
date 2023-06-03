@@ -43,7 +43,7 @@ function Header() {
                                     <ul className='ms-lg-5 ms-sm-2'>
                                         <li onClick={handeLogout}>Log Out</li>
                                         <li onClick={()=>{navigate('/inforuser')}}>My Account</li>
-                                        {localStorage.getItem("isAdmin")===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
+                                        {Number(localStorage.getItem("isAdmin"))===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
                                     </ul>
                                     </div>
                                 </Fragment>:
