@@ -140,6 +140,9 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
            {/* Single item */}
         </div>
       </div>
+      
+    </div>
+    <div class="col-md-4">
       <div class="card mb-4">
         <div class="card-body">
           <p><strong>Expected shipping delivery</strong></p>
@@ -155,7 +158,7 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
           <img class="me-2" width="45px"
             src="https://play-lh.googleusercontent.com/dQbjuW6Jrwzavx7UCwvGzA_sleZe3-Km1KISpMLGVf1Be5N6hN6-tdKxE5RDQvOiGRg=w240-h480-rw"
             alt="PayPal acceptance mark" /> */}
-            <label>
+      <label className='ms-3'>
         <input
           type="radio"
           name="paymentMethod"
@@ -171,7 +174,7 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
         />
       </label>
 
-      <label>
+      <label className='ms-3'>
         <input
           type="radio"
           name="paymentMethod"
@@ -189,9 +192,7 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
 
         </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card mb-4">
+      <div class="card mt-4 mb-4">
         <div class="card-header py-3">
           <h5 class="mb-0">Summary</h5>
         </div>
