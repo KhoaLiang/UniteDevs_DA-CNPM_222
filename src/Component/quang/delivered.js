@@ -123,9 +123,9 @@ function ShowDelivered(props) {
 
             <Container>
             {data.map((staff,index) => (
-              <Row style={{backgroundColor: "lightgrey", marginBottom: "60px"}}>
+              <Row style={{backgroundColor: "lightgrey", marginBottom: "60px", height: "350px", borderRadius: "20px"}}>
                 <Col md={6}>
-                  <div key={index}>
+                  <div key={index} style={{padding: "20px 5px"}}>
                     {customerInfo[index] && (
                       <div>
                         <span style={{ fontWeight: "bold", fontStyle: "italic" }}>
@@ -154,8 +154,8 @@ function ShowDelivered(props) {
                     <thead>
                       <tr>
                         <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
                         <th>Giá tiền</th>
+                        <th>Số lượng</th>
                       </tr>
                     </thead>
                     {detailOrder[index] && (
@@ -163,7 +163,7 @@ function ShowDelivered(props) {
                       {detailOrder[index].map((detail) => (
                         <tr>
                           <td>{detail.product_name}</td>
-                          <td>{detail.product_price}</td>
+                          <td>{detail.product_price? detail.product_price.toLocaleString():''}</td>
                           <td>{detail.count}</td>
                         </tr>
                       ))}
@@ -172,7 +172,7 @@ function ShowDelivered(props) {
                   </Table>
 
                   <div style={{ position: "absolute", right: "16px" }}>
-                    <p style={{fontWeight: "bold", fontSize: "20px"}}>Tổng tiền: {staff.sum_price}</p>
+                    <p style={{fontWeight: "bold", fontSize: "20px"}}>Tổng tiền: {staff.sum_price.toLocaleString()}</p>
                   </div>
                 </div>
                 </Col>

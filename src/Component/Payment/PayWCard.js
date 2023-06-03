@@ -61,7 +61,7 @@ export default function PayWCard() {
       payment_id: 1,
       shipping_id: 1,
       notice: "None",
-      sum_price: TotalAmount,
+      sum_price: parseInt(TotalAmount.replace(/\./g, "")),
       order_detail: cartItems.map((ele) => {return {product_id: ele.id, count: ele.quantity}})
     }
     localStorage.setItem('cart', JSON.stringify([]));

@@ -81,8 +81,7 @@ function Manage_employee() {
   if (Number(localStorage.getItem("isAdmin"))===1)
   return (
     <div>
-      <HeaderAdmin />
-
+      <HeaderAdmin/>
       <Container style={{ margin: "0px", maxWidth: "100%" }}>
         <Row style={{ width: "100%" }}>
           <Col md={2}>

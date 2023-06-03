@@ -22,7 +22,7 @@ function ShowWarning1({setIsVisible,setShowWarning,showWarning}) {
             Are you sure you want to exit? 
         </h3>
         <span>
-            Tất cả dữ liệu đã thêm hoặc thay đổi sẽ không được lưu
+            All data cannot Saved!
         </span>
         <div class="edit-btn">
             <button type="button" class="btn btn-success" onClick={handleConfirm}>Confirm</button>
