@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 export default function PayWCard() {
-    const {TotalAmount}= useContext(AddContext);
+  let TotalAmount =  localStorage.getItem('totalAmount');
     const navigate=useNavigate();
     const [cardNumber, setCardNumber] = useState('');
   const [nameOnCard, setNameOnCard] = useState('');
@@ -68,7 +68,7 @@ export default function PayWCard() {
           id="typeText"
           className="form-control form-control-lg"
           size="17"
-          value="8987 5452 9987 1421"
+          value=""
           
         />
         <label className="form-label" htmlFor="typeText">
@@ -123,18 +123,28 @@ export default function PayWCard() {
         </div>
       </div>
 
-<p class="mb-5">Total amount to be pay: {TotalAmount} VND</p>
+<p class="mb-5" style={{textAlign: "center"}}>Total amount to be pay: <span style={{color: "red", fontWeight: "600px"}}>{TotalAmount} VND</span></p>
+<div style={{
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent:'space-between'
+}}>
+  <h5 className="btn btn-warning btn-block btn-lg rounded" onClick={()=>{navigate(`/cart-pro`)}}  style={{
+    cursor: "pointer"
+  }}>
+    <a><i class="fas fa-angle-left me-2" ></i>Back to shopping</a>
+  </h5>
+  <button type="button" className="btn btn-primary btn-block btn-lg" onClick={()=>{navigate(`/thank-you`)}} >Buy now</button>
+</div>
 
-<button type="button" class="btn btn-primary btn-block btn-lg" onClick={()=>{navigate(`/thank-you`)}} >Buy now</button>
 
-<h5 class="fw-bold mb-5" style={{ position: 'absolute', bottom: '0' }} onClick={()=>{navigate(`/cart-pro`)}}>
-  <a><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
-</h5>
 
 </form></div>
-       
+
     </div>
-    
+    <br/>
+    <br/>
+    <br/>
 <Footer/>
 
     </>

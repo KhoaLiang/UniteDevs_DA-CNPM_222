@@ -136,7 +136,6 @@ function App() {
     }
     
   }
-
   return (
     <div>
       <AddContext.Provider>
@@ -176,7 +175,7 @@ function App() {
 
           {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}
           {/*Payment section  */}
-          <Route path="/pay-with-card" element={<PayWCard />} />
+          <Route path="/pay-with-card" element={<PayWCard/>} />
           <Route path="/pay-with-momo" element={<PayWMomo />} />
           <Route path="/thank-you" element={<Thankyou />} />
           <Route path="/contact" element={<Contact />} />

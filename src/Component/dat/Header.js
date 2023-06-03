@@ -40,7 +40,7 @@ function Header() {
                         localStorage.getItem("name")?
                                 <Fragment>
                                     <div className="d-inline-block ps-lg-5 ps-sm-2 user"><i className="me-1 fa-solid fa-user"></i> {localStorage.getItem("name")}
-                                    <ul className='ms-lg-5 ms-sm-2'>
+                                    <ul className='ms-lg-5 ms-sm-2' style={{width: "120px", left: "20px"}}>
                                         <li onClick={handeLogout}>Log Out</li>
                                         <li onClick={()=>{navigate('/inforuser')}}>My Account</li>
                                         {Number(localStorage.getItem("isAdmin"))===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
@@ -60,7 +60,7 @@ function Header() {
             <div className="row mt-3 d-flex justify-content-center">
                 <div onClick={()=>{navigate('/')}} className="col-4 fs-3 header-name-shop text-end">
                     <img src={logo} alt="" width="45px" />
-                    easyelectronics
+                    Easyelectronics
                 </div>
                 <div className="col-6 ">
                     <div className="input-group ">
@@ -77,7 +77,7 @@ function Header() {
                         </div>                   
                 </div>
                 <div className="col-1">
-                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}>1</i>
+                <i className="fs-3 mt-2 fa-sharp fa-solid fa-cart-shopping" onClick={()=>{navigate('/cart-pro')}}></i>
                 
                 </div>
             </div>

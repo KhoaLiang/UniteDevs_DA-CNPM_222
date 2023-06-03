@@ -55,6 +55,7 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
       };
     
       const handleCheckout = () => {
+        console.log('Checkout');
         if (paymentMethod === 'visa') {
           // Redirect to Visa payment page
           navigate(`/pay-with-card`)
@@ -99,12 +100,13 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
         totalAmount += item.quantity * item.price*(100-item.sale_percent)/100;
       }
         setTotalAmount(totalAmount.toLocaleString());
+        localStorage.setItem('totalAmount', totalAmount.toLocaleString());
     },[cartItems])
     return (
       <>
         <Header />
         <h1 className='text-center'>This is the cart</h1>
-        {(cartItems.length ===0) ?  <h1 className='text-center'>Choose something to buy and comback :D</h1> 
+        {(cartItems.length ===0) ?  <h1 className='text-center'>Choose something to buy and comback</h1> 
         
         :<div>
         {/* <div class="row justify-content-center align-items-center g-2">
@@ -265,7 +267,7 @@ const Cart = ({onRemove, cartItems, onAdd, onDecrease}) => {
           </div> */}
 
               {/* Check out button */}
-      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() => !localStorage.getItem('name')? navigate('/login'):handleCheckout}>
+      <button type="button" className="btn btn-primary btn-lg btn-block" onClick={() => !localStorage.getItem('name')? navigate('/login'):handleCheckout()}>
         Go to checkout
       </button>
         </div>

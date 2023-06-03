@@ -8,7 +8,7 @@ import { useContext } from 'react';
   return (
     
 <>
-    <div class="row">
+    <div class="row" style={{paddingBottom: '10px'}}>
       <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
         <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
           <img src={phone.image}
@@ -24,10 +24,7 @@ import { useContext } from 'react';
         <p onClick={()=>{navigate(`/product/${phone.id}`)}}><strong>{phone.name}</strong></p>
         <p>Color style:  {phone.color}</p>
         <p>Place holder</p>
-        <button type="button" class="btn btn-primary btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
-          title="Remove item" onClick={()=>{onRemove(phone)}}>
-          <i class="fas fa-trash"></i>
-        </button>
+        
         {/* <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
           title="Move to the wish list">
           <i class="fas fa-heart"></i>
@@ -45,8 +42,8 @@ import { useContext } from 'react';
                     <i class="fas fa-minus"></i>
                   </button>
 
-                  <div class="form-outline">
-                    <input id="form1" min="0" name="quantity" value={phone.quantity} type="disabled" class="form-control" />
+                  <div class="form-outline" style={{textAlign: 'center'}}>
+                    <input style={{textAlign:"center"}} id="form1" min="0" name="quantity" value={phone.quantity} type="disabled" class="form-control" />
                     <label class="form-label" for="form1">Quantity</label>
                   </div>
 
@@ -65,6 +62,12 @@ import { useContext } from 'react';
 
                 </p>
                  {/* Price */}
+                 <button type="button" style={{
+                  float: 'right',
+                 }} class="btn btn-danger btn-sm me-1 mb-2" data-mdb-toggle="tooltip"
+                  title="Remove item" onClick={()=>{onRemove(phone)}}>
+                  <i class="fas fa-trash"></i>
+                </button>
               </div>
             </div>
             
