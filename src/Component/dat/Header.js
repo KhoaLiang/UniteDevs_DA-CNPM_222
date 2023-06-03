@@ -42,7 +42,7 @@ function Header() {
                         localStorage.getItem("name")?
                                 <Fragment>
                                     <div className="d-inline-block ps-lg-5 ps-sm-2 user"><i className="me-1 fa-solid fa-user"></i> {localStorage.getItem("name")}
-                                    <ul className='ms-lg-5 ms-sm-2'>
+                                    <ul className=''>
                                         <li onClick={handeLogout}>Log Out</li>
                                         <li onClick={()=>{navigate('/inforuser')}}>My Account</li>
                                         {Number(localStorage.getItem("isAdmin"))===1?<li onClick={()=>{navigate('/adm_man_user')}}>Management</li>:<></>}
