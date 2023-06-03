@@ -11,3 +11,7 @@
 table{
     height: 200px;
 }
+
+.LayoutUser>.container>div{
+    width: 100%;
+}

@@ -32,7 +32,7 @@ function LayoutUser({children}) {
             <Header/>
 
             <div className="LayoutUser">
-                <div className="container">
+                <div className="container ">
                     <div className='row d-flex justify-content-center '>
                         <div className='col-2 navbar'>
                             <h5 className='mt-3 border-bottom pb-4'>Nguyễn Tấn Đạt</h5>
