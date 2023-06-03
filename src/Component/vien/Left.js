@@ -39,7 +39,7 @@ function Left() {
                    Product Manager
                 </div>
             </a>
-            <a href='/adm_man_user'>
+            <a href='/adm_man_order'>
                 <div className={`edit-item ${localStorage.getItem('tag') === '3' ? 'manage-employee' : ''}` + " rounded"} onClick={()=>{localStorage.setItem("tag", "3");}}>
                 <FontAwesomeIcon icon={faBagShopping} class="icon-1"></FontAwesomeIcon>
                 Order Manager

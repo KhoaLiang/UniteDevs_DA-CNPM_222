@@ -40,6 +40,9 @@ import Thankyou from "./Component/Payment/thankYou";
 import PayWMomo from "./Component/Payment/PayWMomo";
 import Contact from "./Component/contact/contact";
 import ShowProduct from './Component/quang/showProduct'
+import ShowOrder from "./Component/quang/order";
+import ShowDeliver from "./Component/quang/deliver";
+import ShowDelivered from "./Component/quang/delivered";
 export const AddContext = createContext();
 // export const AddContext = createContext();
 // export let phone = []
@@ -158,12 +161,20 @@ function App() {
           <Route path="/orderman" element={<OrderMan />} />
           <Route path="/ordertrack" element={<OrderTrack />} />
 
+        
           <Route path="/prepaymentb" element={<PrePaymentB />} />
           <Route path="/prepaymentm" element={<PrePaymentM />} />
           <Route path="/adm_man_emp" element={<Manage_employee />} />
           <Route path="/adm_man_user" element={<Manage_user />} />
           <Route path="/adm_man_product" element={<ShowProduct />} />
+<<<<<<< Updated upstream
           <Route path="/cellphones" element={<Showcase phone={phone}  setPhone={setPhone}/>} />
+=======
+          <Route path="/adm_man_order" element={<ShowOrder />} />
+          <Route path="/adm_man_deliver" element={<ShowDeliver />} />
+          <Route path="/adm_man_delivered" element={<ShowDelivered />} />
+          <Route path="/cellphones" element={<Showcase phone={phone} />} />
+>>>>>>> Stashed changes
           {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
           <Route path="/laptop" element={<Showcase phone={laptop} setPhone={setLaptop}/>} />
           <Route path="/product/:id" element={<ProductDetailC onAdd={onAdd}/>}/>

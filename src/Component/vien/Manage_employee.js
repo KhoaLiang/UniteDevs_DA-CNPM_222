@@ -59,9 +59,11 @@ function Manage_employee() {
   useEffect(async () => {
     try {
       const res = await getAllStaff(localStorage.getItem('token'));
+      console.log(res);
       if (res && Array.isArray(res)) {
         setData(res);
         console.log("aaaa111");
+        console.log(data);
       }
     } catch (error) {
       console.log(error);
