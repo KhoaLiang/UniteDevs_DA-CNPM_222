@@ -44,19 +44,19 @@ function ChangePassword() {
                             <tr className='mt-3'>
                                 <td className='text-end text-secondary'>Mật khẩu cũ</td>
                                 <td className='ps-4'>
-                                    <input type="text" onChange={e=>handle(e)} value={data.oldPassword} id='oldPassword' className="form-control "  />
+                                    <input type="password" onChange={e=>handle(e)} value={data.oldPassword} id='oldPassword' className="form-control "  />
                                 </td>
                             </tr>
                             <tr className='pb-3'>
                                 <td className='text-end text-secondary'>Mật khẩu mới</td>
                                 <td className='ps-4'>
-                                    <input type="text" onChange={e=>handle(e)} value={data.newPassword} id='newPassword' className="form-control"  />
+                                    <input type="password" onChange={e=>handle(e)} value={data.newPassword} id='newPassword' className="form-control"  />
                                 </td>
                             </tr >
                             <tr className='pb-3 '>
                                 <td className='text-end text-secondary'>Xác nhận mật khẩu mới</td>
                                 <td className='ps-4'>
-                                    <input type="text" onChange={e=>handle(e)} value={data.confirmPassword} id='confirmPassword' className="form-control" />
+                                    <input type="password" onChange={e=>handle(e)} value={data.confirmPassword} id='confirmPassword' className="form-control" />
                                 </td>
                             </tr>
                         </tbody>                               
