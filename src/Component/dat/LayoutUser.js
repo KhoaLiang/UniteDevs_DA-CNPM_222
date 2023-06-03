@@ -21,8 +21,8 @@ function LayoutUser({children}) {
 
     const handle=(e)=>{
         if (e.target.innerHTML==='My information')       navigate('/inforuser')        
-        else if(e.target.innerHTML==='Edit informationn') navigate('/editinfor') 
-        else if(e.target.innerHTML==='Change Passworu')        navigate('/changepass')  
+        else if(e.target.innerHTML==='Edit information') navigate('/editinfor') 
+        else if(e.target.innerHTML==='Change Password')        navigate('/changepass')  
 
         
     }
