@@ -60,3 +60,6 @@
 .d-cart{
     font-size: 1px;
 }
+.d-hover-btn:hover{
+    font-size: 20px;
+}

@@ -149,7 +149,7 @@ export default function PayWCard() {
   }}>
     <a><i class="fas fa-angle-left me-2" ></i>Back to shopping</a>
   </h5>
-  <button type="button" className="btn btn-primary btn-block btn-lg" onClick={(event)=>{addOrderUser();  navigate(`/thank-you`)}}>Buy now</button>
+  <button type="button" className="btn btn-primary btn-block btn-lg" onClick={()=>{addOrderUser();  navigate(`/thank-you`)}}>Buy now</button>
 </div>
 
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import Header from '../dat/Header';
 import Footer from '../dat/Footer';
+import {addOrder} from '../../api/userApi'
+import {message} from 'antd'
 
  const PayWMomo = ({phone}) => {
   const navigate=useNavigate();
@@ -9,6 +11,19 @@ import Footer from '../dat/Footer';
   const containerStyle = {
     maxWidth: '540px',
   };
+  const cartItems = JSON.parse(localStorage.getItem('cart'));
+  function addOrderUser(){
+    let form = {
+      voucher_id: 1,
+      payment_id: 1,
+      shipping_id: 1,
+      notice: "None",
+      sum_price: TotalAmount,
+      order_detail: cartItems.map((ele) => {return {product_id: ele.id, count: ele.quantity}})
+    }
+    localStorage.setItem('cart', JSON.stringify([]));
+    addOrder(localStorage.getItem('token'), form).then(() => {message.success("Order Successfully!")}).catch(() => {message.error("Order Failed!")});
+  }
   return (
     
 <>
@@ -26,7 +41,7 @@ import Footer from '../dat/Footer';
           <h5 class="fw-bold btn btn-warning col-4 rounded" onClick={()=>{navigate(`/cart-pro`)}}>
             <a><i class="fas fa-angle-left me-2"></i>Back to shopping</a>
           </h5>
-          <a onClick={()=>{navigate(`/thank-you`)}} class="btn btn-primary col-4">Confirm you have paid</a>
+          <a onClick={()=>{ addOrderUser();navigate(`/thank-you`);}} class="btn btn-primary col-4">Confirm you have paid</a>
         </div>
         
       </div>

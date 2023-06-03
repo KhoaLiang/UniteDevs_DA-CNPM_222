@@ -1,10 +1,10 @@
 import {useNavigate} from 'react-router-dom'
 import logo from '../../img/logo.jpg'
 import '../../css/Header.css';
-import { Fragment } from 'react';
-function Header() {
+import { Fragment, useState } from 'react';
+import {searchItem} from '../../api/userApi'
+function Header(props) {
     let cartItems = JSON.parse(localStorage.getItem('cart'));
-
     localStorage.setItem("numberItem",
     cartItems.reduce(function(total, obj) {
         return total + obj.quantity;
@@ -29,7 +29,15 @@ function Header() {
         localStorage.removeItem("tag");
         navigate('/login')
     }
-
+    const [searchContent, setSearchContent] = useState('');
+    function handleInputChange(event) {
+        setSearchContent(event.target.value);
+    }
+    function search(){
+        searchItem(searchContent).then((rs)=>{
+            props.handleItem(rs.data);
+        })
+    }
   return (
     <div className="bg-info header d-flex justify-content-center text-white ">
         <div className="container container-header">
@@ -41,7 +49,7 @@ function Header() {
                 <div className="col-8 d-flex justify-content-end">
                     <div className="d-inline-block ps-lg-5 ps-sm-2"><i className="me-1 fa-sharp fa-solid fa-bell"></i> Notification</div>
                     <div className="d-inline-block ps-lg-5 ps-sm-2"><i className="me-1 fa-solid fa-question"></i> Support</div>
-                    <div className="d-inline-block ps-lg-5 ps-sm-2"><i className="me-1 fa-solid fa-globe"></i> Vietname</div>
+                    <div className="d-inline-block ps-lg-5 ps-sm-2"><i className="me-1 fa-solid fa-globe"></i> Vietnamese</div>
                     {
                         localStorage.getItem("name")?
                                 <Fragment>
@@ -76,8 +84,10 @@ function Header() {
                             placeholder="What are you looking for..."
                             aria-label="Recipient's username"
                             aria-describedby="basic-addon2"
+                            value={searchContent}
+                            onChange={handleInputChange}
                         />
-                        <span className="input-group-text" id="basic-addon2">
+                        <span className="input-group-text" id="basic-addon2" style={{cursor: "pointer"}} onClick={search}>
                         <i className="fa-solid fa-magnifying-glass"></i>
                         </span>
                         </div>                   
@@ -90,13 +100,13 @@ function Header() {
                 </div>
             </div>
             <div className="row  mt-3 justify-content-center category">
-                <div className="col-1" onClick={()=>{navigate('/cellphones')}}>Phone</div>
-                <div className="col-1" onClick={()=>{navigate('/laptop')}}>Laptop</div>
-                <div className="col-1" onClick={()=>{navigate('/ipad')}}>Tablet</div>
-                <div className="col-1">Accessory</div>
-                <div className="col-1" onClick={()=>{navigate('/watch')}}>SmartWatch</div>
-                <div className="col-1">Clock</div>
-                <div className="col-2">Sims,Scratch Cards</div>
+                <div className="col-1 d-hover-btn" onClick={()=>{navigate('/cellphones')}}>Phone</div>
+                <div className="col-1 d-hover-btn" onClick={()=>{navigate('/laptop')}}>Laptop</div>
+                <div className="col-1 d-hover-btn" onClick={()=>{navigate('/ipad')}}>Tablet</div>
+                <div className="col-1 d-hover-btn">Accessory</div>
+                <div className="col-1 d-hover-btn" onClick={()=>{navigate('/watch')}}>SmartWatch</div>
+                <div className="col-1 d-hover-btn">Clock</div>
+                <div className="col-2 d-hover-btn">Sims,Scratch Cards</div>
             </div>
         </div>
     </div>  

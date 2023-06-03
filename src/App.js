@@ -163,18 +163,12 @@ function App() {
           <Route path="/adm_man_emp" element={<Manage_employee />} />
           <Route path="/adm_man_user" element={<Manage_user />} />
           <Route path="/adm_man_product" element={<ShowProduct />} />
-          <Route path="/cellphones" element={<Showcase phone={phone} />} />
+          <Route path="/cellphones" element={<Showcase phone={phone}  setPhone={setPhone}/>} />
           {/* <Route path="/cellphones/:id"  element={<ProductDetail phone={phone}/>}/> */}
-          <Route path="/laptop" element={<Showcase phone={laptop} />} />
-          <Route
-            path="/product/:id"
-            element={<ProductDetailC onAdd={onAdd} />}
-          />
-          <Route path="/watch" element={<Showcase phone={watch} />} />
-          {/* <Route path="/watch/:id"  element={<ProductDetail phone={watch}/>}/> */}
-          <Route path="/ipad" element={<Showcase phone={ipad} />} />
-          {/* <Route path="/ipad/:id"  element={<ProductDetail phone={ipad}/>}/> */}
-
+          <Route path="/laptop" element={<Showcase phone={laptop} setPhone={setLaptop}/>} />
+          <Route path="/product/:id" element={<ProductDetailC onAdd={onAdd}/>}/>
+          <Route path="/watch" element={<Showcase phone={watch} setPhone={setWatch}/>} />
+          <Route path="/ipad" element={<Showcase phone={ipad} setPhone={setIpad}/>} />
           <Route path="/cart-pro" element={<CartPro onRemove={onRemove} cartItems={cartItems} onAdd={onAdd} onDecrease={onDecrease}/>} />
 
           {/* <Route path="/showcase"  element={<Showcase phone={phone.data} setState={setState} state={state}/>}/> */}

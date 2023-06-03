@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import './product.css'
  const Product = ({phone}) => {
   const navigate=useNavigate();
-  console.log(phone);
   return (
     // style={{width: '18rem'}}
 <>

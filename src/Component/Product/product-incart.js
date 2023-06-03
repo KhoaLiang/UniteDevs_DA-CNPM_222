@@ -27,7 +27,7 @@ import { useContext } from 'react';
         
         {/* <button type="button" class="btn btn-danger btn-sm mb-2" data-mdb-toggle="tooltip"
           title="Move to the wish list">
-          <i class="fas fa-heart"></i>
+          <i class="fas fa-heart"></i>console.log
         </button> */}
 
           {/* Data */}
