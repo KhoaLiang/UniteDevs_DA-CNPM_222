@@ -5,7 +5,7 @@ import { Fragment, useState } from 'react';
 import {searchItem} from '../../api/userApi'
 function Header(props) {
     let cartItems = JSON.parse(localStorage.getItem('cart'));
-    if (cartItems === undefined) {
+    if (!cartItems) {
         localStorage.setItem('cart', JSON.stringify([]));
     }
     localStorage.setItem("numberItem",
